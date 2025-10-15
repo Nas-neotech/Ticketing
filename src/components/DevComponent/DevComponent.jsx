@@ -42,6 +42,7 @@ const DevComponent = ({drag , element , isLayoutEle , parent , dragPreview , ite
             {`This is Dev Component: id => ${element?.text || element?.id}`}
             </p>
             } 
+            {element?.text == "Search" ? <div>hi from dev compo</div> : <></>}
         </div>
     )
 }
