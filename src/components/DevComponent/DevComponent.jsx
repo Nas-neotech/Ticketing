@@ -38,11 +38,15 @@ const DevComponent = ({drag , element , isLayoutEle , parent , dragPreview , ite
             ? 
             <TestDevComponent item={item} element={element}/>
             :
+            element?.text == "Search" 
+            ? 
+            <div>hi from dev compo</div> 
+            : 
             <p>
             {`This is Dev Component: id => ${element?.text || element?.id}`}
             </p>
             } 
-            {element?.text == "Search" ? <div>hi from dev compo</div> : <></>}
+            
         </div>
     )
 }
