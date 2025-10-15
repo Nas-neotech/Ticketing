@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { FaUser, FaPhone } from "react-icons/fa";
+// import { FaUser, FaPhone } from "react-icons/fa";
 import usePage from "../../contexts/usePage/usePage";
 import ElementSettingsWrapper from "../ElementTypes/ElementSettingsWrapper/ElementSettingsWrapper";
 import TestDevComponent from "./TestDevComponent";
@@ -57,7 +57,7 @@ const DevComponent = ({ drag, element, isLayoutEle, parent, dragPreview, item })
 
           {/* Name Input */}
           <div className="flex items-center border rounded-xl px-3 py-2 focus-within:ring-2 focus-within:ring-blue-500">
-            <FaUser className="text-gray-500 mr-2" />
+            {/* <FaUser className="text-gray-500 mr-2" /> */}
             <input
               type="text"
               placeholder="Enter name"
@@ -67,7 +67,7 @@ const DevComponent = ({ drag, element, isLayoutEle, parent, dragPreview, item })
 
           {/* Phone Input */}
           <div className="flex items-center border rounded-xl px-3 py-2 focus-within:ring-2 focus-within:ring-blue-500">
-            <FaPhone className="text-gray-500 mr-2" />
+            {/* <FaPhone className="text-gray-500 mr-2" /> */}
             <input
               type="tel"
               placeholder="Enter phone number"
