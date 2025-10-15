@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-// import { FaUser, FaPhone } from "react-icons/fa";
 import usePage from "../../contexts/usePage/usePage";
 import ElementSettingsWrapper from "../ElementTypes/ElementSettingsWrapper/ElementSettingsWrapper";
 import TestDevComponent from "./TestDevComponent";
