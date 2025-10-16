@@ -1,18 +1,42 @@
 import React, { useMemo, useState } from "react";
-import { UserOutlined, PhoneOutlined, MobileOutlined, DatabaseOutlined,SearchOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  PhoneOutlined,
+  MobileOutlined,
+  DatabaseOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 
-
-const SearchCompo = ({ onSearchResults }) => {
- const fields = useMemo(
+const TTT = ({ onSearchResults }) => {
+  const fields = useMemo(
     () => [
-      { id: "name", type: "text", placeholder: "Enter name", icon: UserOutlined },
-      { id: "phone", type: "tel", placeholder: "Enter phone number", icon: PhoneOutlined },
-      { id: "mobile", type: "tel", placeholder: "Enter mobile number", icon: MobileOutlined },
-      { id: "port", type: "text", placeholder: "Enter port serial number", icon: DatabaseOutlined },
+      {
+        id: "name",
+        type: "text",
+        placeholder: "Enter name",
+        icon: UserOutlined,
+      },
+      {
+        id: "phone",
+        type: "tel",
+        placeholder: "Enter phone number",
+        icon: PhoneOutlined,
+      },
+      {
+        id: "mobile",
+        type: "tel",
+        placeholder: "Enter mobile number",
+        icon: MobileOutlined,
+      },
+      {
+        id: "port",
+        type: "text",
+        placeholder: "Enter port serial number",
+        icon: DatabaseOutlined,
+      },
     ],
     []
   );
-
 
   const [formData, setFormData] = useState(
     fields.reduce((acc, field) => ({ ...acc, [field.id]: "" }), {})
@@ -25,34 +49,81 @@ const SearchCompo = ({ onSearchResults }) => {
   const handleSearch = () => {
     // Mock data
     const mockData = [
-      { id: 1, name: "Rani 1", phone: "123-456-7890", mobile: "555-111-2222", port: "PORT-1234" },
-      { id: 2, name: "Rani 2", phone: "987-654-3210", mobile: "555-333-4444", port: "PORT-5678" },
-      { id: 3, name: "Rani 3", phone: "555-123-4567", mobile: "555-555-5555", port: "PORT-9999" },
+      {
+        id: 1,
+        name: "Rani 1",
+        phone: "111 111 1111",
+        mobile: "125 456 7890",
+        port: "1234",
+      },
+      {
+        id: 2,
+        name: "Rani 2",
+        phone: "222 222 2222",
+        mobile: "642 234 5678",
+        port: "5678",
+      },
+      {
+        id: 3,
+        name: "Rani 2",
+        phone: "333 333 3333",
+        mobile: "712 345 6789",
+        port: "1011",
+      },
+      {
+        id: 4,
+        name: "Rani 4",
+        phone: "444 444 4444",
+        mobile: "211 243 6789",
+        port: "1213",
+      },
+      {
+        id: 5,
+        name: "Rani 5",
+        phone: "555 555 5555",
+        mobile: "643 234 5678",
+        port: "1415",
+      },
+      {
+        id: 6,
+        name: "Rani 6",
+        phone: "666 666 6666",
+        mobile: "987 654 3210",
+        port: "1617",
+      },
     ];
 
-    // Optional: filter based on input
-    const filteredData = mockData.filter(user =>
-      (!formData.name || user.name.includes(formData.name)) &&
-      (!formData.phone || user.phone.includes(formData.phone)) &&
-      (!formData.mobile || user.mobile.includes(formData.mobile)) &&
-      (!formData.port || user.port.includes(formData.port))
+    const filteredData = mockData.filter(
+      (user) =>
+        (!formData.name || user.name.includes(formData.name)) &&
+        (!formData.phone || user.phone.includes(formData.phone)) &&
+        (!formData.mobile || user.mobile.includes(formData.mobile)) &&
+        (!formData.port || user.port.includes(formData.port))
     );
 
-    if (onSearchResults) onSearchResults(filteredData);
+    if (
+      (formData.name || formData.phone || formData.mobile || formData.port) &&
+      onSearchResults
+    )
+      onSearchResults(filteredData);
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-2xl p-6 flex flex-col gap-6">
+    <div
+      className="max-w-md mx-auto bg-white shadow-xl hover:shadow-2xl transition-shadow 
+    duration-300 rounded-2xl p-6 flex flex-col gap-6"
+    >
       <h2 className="text-2xl font-semibold text-gray-800 text-center">
-        Search for user
+        Search user info
       </h2>
 
-      {fields.map(({ id, type, placeholder ,icon: Icon }) => (
+      {fields.map(({ id, type, placeholder, icon: Icon }) => (
         <div
           key={id}
-          className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all"
+          className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 
+          focus-within:ring-2 focus-within:ring-blue-500 transition-all"
         >
-         <Icon className="text-gray-500 text-lg" />
+          <Icon className="text-gray-500 text-lg" />
           <input
             type={type}
             placeholder={placeholder}
@@ -62,10 +133,11 @@ const SearchCompo = ({ onSearchResults }) => {
           />
         </div>
       ))}
-
       <button
         onClick={handleSearch}
-        className="w-full bg-blue-600 flex flex-row gap-5 align-item:center hover:bg-blue-700 text-white font-medium py-2.5 rounded-xl shadow-md hover:shadow-blue-200 transition-all"
+        className="w-full bg-blue-600 hover:bg-blue-700 flex  flex-row gap-5
+         justify-center items-center text-white font-medium py-2.5 rounded-xl
+          shadow-md hover:shadow-blue-200 transition-all"
       >
         <SearchOutlined /> Search
       </button>
@@ -73,4 +145,4 @@ const SearchCompo = ({ onSearchResults }) => {
   );
 };
 
-export default SearchCompo;
+export default TTT;
