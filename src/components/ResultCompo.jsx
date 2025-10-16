@@ -1,32 +1,32 @@
 import React from "react";
+import { UserOutlined, PhoneOutlined } from "@ant-design/icons";
 
 const ResultCompo = ({ data }) => {
-  if (!data || data.length === 0) return null; // nothing to show
+  if (!data || data.length === 0) return null;
 
   return (
-    <div className="max-w-5xl mx-auto mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+    <div className="max-w-6xl mx-auto mt-6 flex flex-wrap justify-center gap-6">
       {data.map((user) => (
         <div
           key={user.id}
-          className="bg-gradient-to-br from-white to-blue-50 shadow-2xl hover:shadow-3xl transition-shadow duration-300 rounded-2xl p-6 flex flex-col items-center space-y-4 border border-gray-100"
+          className="w-full sm:w-60 bg-gradient-to-br from-white to-blue-50 shadow-2xl hover:shadow-3xl transition-shadow duration-300 rounded-2xl p-6 flex flex-col items-center space-y-4 border border-gray-100"
         >
-          {/* Avatar */}
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white shadow-md text-lg font-bold">
-            {user.name ? user.name[0].toUpperCase() : "?"} 
+          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-700 to-indigo-700 flex items-center justify-center text-white shadow-md text-lg font-bold">
+            <UserOutlined className="text-white text-4xl " />
           </div>
 
-          {/* User Info */}
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-lg font-semibold text-gray-800 tracking-wide">
-              {user.name || "Unknown"}
-            </h3>
-            <p className="text-gray-500 text-sm font-medium">
+            <div className="text-lg font-bold ">{user.name || "Unknown"}</div>
+            <div className="text-gray-600 gap-3 font-bold flex items-center">
+              <PhoneOutlined className="text-lg" />
               {user.phone || "No phone"}
-            </p>
+            </div>
           </div>
-          
-          {/* Button */}
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-xl shadow-md hover:shadow-blue-300 transition-all duration-300">
+
+          <button
+            className="w-full bg-gradient-to-br from-blue-700 to-indigo-700  text-white p-2 font-bold text-lg
+          rounded-2xl shadow-lg hover:shadow-indigo-800 transition-all duration-300"
+          >
             View Profile
           </button>
         </div>
@@ -36,3 +36,4 @@ const ResultCompo = ({ data }) => {
 };
 
 export default ResultCompo;
+
