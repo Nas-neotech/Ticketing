@@ -58,13 +58,13 @@ const DevComponent = ({
       ) : element?.text === "Search" ? (
          <div className="max-w-md mx-auto bg-white shadow-2xl duration-300 rounded-2xl p-6 flex flex-col gap-6">
           <h2 className="text-2xl font-semibold text-gray-800 text-center">
-            Search icon sad
+            Search icon new
           </h2>
     
           {/* Name Input */}
            <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all">
             <img
-              src="src/assets/images/user.webp"
+              src="../assets/images/user.webp"
               alt="User Icon"
               className="w-5 h-5 object-contain opacity-70"
             />
