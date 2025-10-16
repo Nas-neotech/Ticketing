@@ -11,7 +11,6 @@ const SearchCompo = ({ onSearchResults }) => {
     []
   );
 
-   
   const [formData, setFormData] = useState(
     fields.reduce((acc, field) => ({ ...acc, [field.id]: "" }), {})
   );
@@ -20,62 +19,23 @@ const SearchCompo = ({ onSearchResults }) => {
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSearch = async () => {
-    try {
-      // Build query string based on filled fields
-      // const query = Object.entries(formData)
-      //   .filter(([_, value]) => value.trim() !== "")
-      //   .map(
-      //     ([key, value]) =>
-      //       `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-      //   )
-      //   .join("&");
-
-      // // Fetch API
-      // const response = await fetch(
-      //   `https://your-api-endpoint.com/search?${query}`
-      // );
-
-      // if (!response.ok) throw new Error("Failed to fetch data");
-
-      // const data = await response.json();
-
-      // Send data back to parent
-
-       const mockData = [
-      {
-        id: 1,
-        name: "Rani 1",
-        phone: "123-456-7890",
-        mobile: "555-111-2222",
-        port: "PORT-1234",
-      },
-      {
-        id: 2,
-        name: "Rani 2",
-        phone: "987-654-3210",
-        mobile: "555-333-4444",
-        port: "PORT-5678",
-      },
-      {
-        id: 3,
-        name: "Rani 3",
-        phone: "555-123-4567",
-        mobile: "555-555-5555",
-        port: "PORT-9999",
-      },
+  const handleSearch = () => {
+    // Mock data
+    const mockData = [
+      { id: 1, name: "Rani 1", phone: "123-456-7890", mobile: "555-111-2222", port: "PORT-1234" },
+      { id: 2, name: "Rani 2", phone: "987-654-3210", mobile: "555-333-4444", port: "PORT-5678" },
+      { id: 3, name: "Rani 3", phone: "555-123-4567", mobile: "555-555-5555", port: "PORT-9999" },
     ];
 
-      
-      if (onSearchResults) {
-        onSearchResults(mockData);
-      }
-    // } catch (error) {
-    //   console.error("Search error:", error);
-    //   if (onSearchResults) {
-    //     onSearchResults([]);
-    //   }
-    // }
+    // Optional: filter based on input
+    const filteredData = mockData.filter(user =>
+      (!formData.name || user.name.includes(formData.name)) &&
+      (!formData.phone || user.phone.includes(formData.phone)) &&
+      (!formData.mobile || user.mobile.includes(formData.mobile)) &&
+      (!formData.port || user.port.includes(formData.port))
+    );
+
+    if (onSearchResults) onSearchResults(filteredData);
   };
 
   return (
