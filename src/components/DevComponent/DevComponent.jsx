@@ -56,7 +56,7 @@ const DevComponent = ({
       {element?.id === 25890 ? (
         <TestDevComponent item={item} element={element} />
       ) : element?.text === "Search" ? (
-         <div className="max-w-md mx-auto bg-white shadow-2xl transition-shadow duration-300 rounded-2xl p-6 flex flex-col gap-6">
+         <div className="max-w-md mx-auto bg-white shadow-2xl duration-300 rounded-2xl p-6 flex flex-col gap-6">
           <h2 className="text-2xl font-semibold text-gray-800 text-center">
             Search
           </h2>
@@ -85,7 +85,7 @@ const DevComponent = ({
           </button>
         </div>
       ) : element?.text === "Result" ? (
-        <div className="max-w-xs mx-auto bg-gradient-to-br from-white to-blue-50 shadow-2xl transition-shadow duration-300 rounded-2xl p-6 flex flex-col items-center space-y-4 border border-gray-100">
+        <div className="max-w-xs mx-auto bg-gradient-to-br from-white to-blue-50 shadow-2xl hover:shadow-3xl transition-shadow duration-300 rounded-2xl p-6 flex flex-col items-center space-y-4 border border-gray-100">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white shadow-md">
             {/* <FaUser className="text-3xl" /> */}
           </div>
