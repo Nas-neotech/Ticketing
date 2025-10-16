@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { UserOutlined, PhoneOutlined, MobileOutlined, DatabaseOutlined } from "@ant-design/icons";
+import { UserOutlined, PhoneOutlined, MobileOutlined, DatabaseOutlined,SearchOutlined } from "@ant-design/icons";
 
 
 const SearchCompo = ({ onSearchResults }) => {
@@ -65,9 +65,9 @@ const SearchCompo = ({ onSearchResults }) => {
 
       <button
         onClick={handleSearch}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-xl shadow-md hover:shadow-blue-200 transition-all"
+        className="w-full bg-blue-600 flex flex-row gap-5 align-item:center hover:bg-blue-700 text-white font-medium py-2.5 rounded-xl shadow-md hover:shadow-blue-200 transition-all"
       >
-        Search
+        <SearchOutlined /> Search
       </button>
     </div>
   );
