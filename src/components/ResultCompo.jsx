@@ -5,6 +5,7 @@ const ResultCompo = () => {
     <div className="max-w-xs mx-auto bg-gradient-to-br from-white to-blue-50 shadow-2xl hover:shadow-3xl transition-shadow duration-300 rounded-2xl p-6 flex flex-col items-center space-y-4 border border-gray-100">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white shadow-md">
             {/* <FaUser className="text-3xl" /> */}
+            compo
           </div>
     
           {/* User Info */}
