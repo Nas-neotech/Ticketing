@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState ,useEffect, useRef } from "react";
 import usePage from "../../contexts/usePage/usePage";
 import ElementSettingsWrapper from "../ElementTypes/ElementSettingsWrapper/ElementSettingsWrapper";
 import TestDevComponent from "./TestDevComponent";
@@ -14,6 +14,7 @@ const DevComponent = ({
   item,
 }) => {
   const { isView, setSelectedElement, selectedElement } = usePage();
+  const [searchResults, setSearchResults] = useState([]);
   const ref = useRef();
 
   useEffect(() => {
@@ -58,9 +59,9 @@ const DevComponent = ({
       {element?.id === 25890 ? (
         <TestDevComponent item={item} element={element} />
       ) : element?.text === "Search" ? (
-       <SearchCompo />
+       <SearchCompo onSearchResults={(data) => setSearchResults(data)}/>
       ) : element?.text === "Result" ? (
-       <ResultCompo />
+       <ResultCompo data={searchResults}/>
       ) : (
         <p>{`This is Dev Component: id => ${element?.text || element?.id}`}</p>
       )}
