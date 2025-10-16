@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import usePage from "../../contexts/usePage/usePage";
 import ElementSettingsWrapper from "../ElementTypes/ElementSettingsWrapper/ElementSettingsWrapper";
 import TestDevComponent from "./TestDevComponent";
-import SearchCompo from "../SearchCompo";
+import SearchCompo from "../SearchCompo.jsx";
 
 const DevComponent = ({
   drag,
