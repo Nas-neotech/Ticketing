@@ -87,8 +87,8 @@ const DevComponent = ({ drag, element, isLayoutEle, parent, dragPreview, item })
 
       {/* User Info */}
       <div className="text-center">
-        <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
-        <p className="text-gray-500 text-sm">{phone}</p>
+        <h3 className="text-lg font-semibold text-gray-800">name</h3>
+        <p className="text-gray-500 text-sm">phone</p>
       </div>
     </div>:(
         <p>{`This is Dev Component: id => ${element?.text || element?.id}`}</p>
