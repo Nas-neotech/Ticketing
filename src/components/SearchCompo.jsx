@@ -1,14 +1,13 @@
 import React, { useMemo, useState } from "react";
-import { PhoneOutlined } from '@ant-design/icons';
-import { FaPhoneAlt } from "react-icons/fa";
+import { UserOutlined, PhoneOutlined, MobileOutlined, DatabaseOutlined } from "@ant-design/icons";
 
 const SearchCompo = ({ onSearchResults }) => {
   const fields = useMemo(
     () => [
-      { id: "name", type: "text", placeholder: "Enter name" },
-      { id: "phone", type: "tel", placeholder: "Enter phone number" },
-      { id: "mobile", type: "tel", placeholder: "Enter mobile number" },
-      { id: "port", type: "text", placeholder: "Enter port serial number" },
+      { id: "name", type: "text", placeholder: "Enter name", icon: <UserOutlined /> },
+      { id: "phone", type: "tel", placeholder: "Enter phone number", icon: <PhoneOutlined /> },
+      { id: "mobile", type: "tel", placeholder: "Enter mobile number", icon: <MobileOutlined /> },
+      { id: "port", type: "text", placeholder: "Enter port serial number", icon: <DatabaseOutlined /> },
     ],
     []
   );
@@ -46,11 +45,12 @@ const SearchCompo = ({ onSearchResults }) => {
         Search test data icon 2
       </h2>
 
-      {fields.map(({ id, type, placeholder }) => (
+      {fields.map(({ id, type, placeholder ,icon }) => (
         <div
           key={id}
           className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all"
         >
+          {icon}
           <input
             type={type}
             placeholder={placeholder}
@@ -61,7 +61,7 @@ const SearchCompo = ({ onSearchResults }) => {
         </div>
       ))}
 
-      <PhoneOutlined/> -- <FaPhoneAlt/>
+      <PhoneOutlined/> 
       <button
         onClick={handleSearch}
         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-xl shadow-md hover:shadow-blue-200 transition-all"
