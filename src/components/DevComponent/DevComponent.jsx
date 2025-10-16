@@ -58,7 +58,7 @@ const DevComponent = ({
       ) : element?.text === "Search" ? (
          <div className="max-w-md mx-auto bg-white shadow-2xl duration-300 rounded-2xl p-6 flex flex-col gap-6">
           <h2 className="text-2xl font-semibold text-gray-800 text-center">
-            Search
+            Search new
           </h2>
     
           {/* Name Input */}
