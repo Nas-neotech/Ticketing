@@ -46,33 +46,33 @@ const SearchCompo = ({ onSearchResults }) => {
   const handleSearch = async () => {
     try {
       // Build query string based on filled fields
-      const query = Object.entries(formData)
-        .filter(([_, value]) => value.trim() !== "")
-        .map(
-          ([key, value]) =>
-            `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-        )
-        .join("&");
+      // const query = Object.entries(formData)
+      //   .filter(([_, value]) => value.trim() !== "")
+      //   .map(
+      //     ([key, value]) =>
+      //       `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+      //   )
+      //   .join("&");
 
-      // Fetch API
-      const response = await fetch(
-        `https://your-api-endpoint.com/search?${query}`
-      );
+      // // Fetch API
+      // const response = await fetch(
+      //   `https://your-api-endpoint.com/search?${query}`
+      // );
 
-      if (!response.ok) throw new Error("Failed to fetch data");
+      // if (!response.ok) throw new Error("Failed to fetch data");
 
-      const data = await response.json();
+      // const data = await response.json();
 
       // Send data back to parent
       if (onSearchResults) {
         onSearchResults(mockData);
       }
-    } catch (error) {
-      console.error("Search error:", error);
-      if (onSearchResults) {
-        onSearchResults([]);
-      }
-    }
+    // } catch (error) {
+    //   console.error("Search error:", error);
+    //   if (onSearchResults) {
+    //     onSearchResults([]);
+    //   }
+    // }
   };
 
   return (
