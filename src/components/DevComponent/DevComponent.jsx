@@ -62,7 +62,12 @@ const DevComponent = ({
           </h2>
     
           {/* Name Input */}
-          <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all">
+           <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all">
+            <img
+              src="../../assets//images/user.webp"
+              alt="User Icon"
+              className="w-5 h-5 object-contain opacity-70"
+            />
             <input
               type="text"
               placeholder="Enter name"
@@ -72,12 +77,17 @@ const DevComponent = ({
     
           {/* Phone Input */}
           <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all">
-            <input
-              type="tel"
-              placeholder="Enter phone number"
-              className="flex-1 outline-none text-gray-700 placeholder-gray-400 bg-transparent"
-            />
-          </div>
+        <img
+          src="../../assets//images/phone.jpg"
+          alt="Phone Icon"
+          className="w-5 h-5 object-contain opacity-70"
+        />
+        <input
+          type="tel"
+          placeholder="Enter phone number"
+          className="flex-1 outline-none text-gray-700 placeholder-gray-400 bg-transparent"
+        />
+      </div>
     
           {/* Search Button */}
           <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-xl shadow-md hover:shadow-blue-200 transition-all">
