@@ -2,7 +2,12 @@ import React from "react";
 import { UserOutlined, PhoneOutlined } from "@ant-design/icons";
 
 const ResultCompo = ({ data }) => {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0)
+    return (
+      <div className="flex justify-center text-[rgb(255,0,0)] p-10 font-bold text-xl">
+        No results found.
+      </div>
+    );
 
   return (
     <div className="max-w-6xl mx-auto mt-6 flex flex-wrap justify-center gap-6">
@@ -18,7 +23,10 @@ const ResultCompo = ({ data }) => {
           <div className="flex flex-col items-center text-center">
             <div className="text-lg font-bold ">{user.name || "Unknown"}</div>
             <div className="text-gray-600 gap-3 font-bold flex items-center">
-              <PhoneOutlined className="text-lg" />
+              <PhoneOutlined
+                className="text-lg "
+                style={{ transform: "rotateY(180deg)" }}
+              />
               {user.phone || "No phone"}
             </div>
           </div>
@@ -36,4 +44,6 @@ const ResultCompo = ({ data }) => {
 };
 
 export default ResultCompo;
+
+
 
