@@ -114,7 +114,7 @@ const TTT = ({ onSearchResults }) => {
     duration-300 rounded-2xl p-6 flex flex-col gap-6"
     >
       <h2 className="text-2xl font-semibold text-gray-800 text-center">
-        Search user info
+        Search Users
       </h2>
 
       {fields.map(({ id, type, placeholder, icon: Icon }) => (
