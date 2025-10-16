@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { PhoneOutlined } from '@ant-design/icons';
+import { FaPhoneAlt } from "react-icons/fa";
 
 const SearchCompo = ({ onSearchResults }) => {
   const fields = useMemo(
@@ -60,7 +61,7 @@ const SearchCompo = ({ onSearchResults }) => {
         </div>
       ))}
 
-      <PhoneOutlined/>
+      <PhoneOutlined/> -- <FaPhoneAlt/>
       <button
         onClick={handleSearch}
         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-xl shadow-md hover:shadow-blue-200 transition-all"
