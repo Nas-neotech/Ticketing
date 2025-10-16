@@ -42,7 +42,7 @@ const SearchCompo = ({ onSearchResults }) => {
   return (
     <div className="max-w-md mx-auto bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-2xl p-6 flex flex-col gap-6">
       <h2 className="text-2xl font-semibold text-gray-800 text-center">
-        Search test data <FaPhoneAlt/>
+        Search test data icon
       </h2>
 
       {fields.map(({ id, type, placeholder }) => (
@@ -60,6 +60,7 @@ const SearchCompo = ({ onSearchResults }) => {
         </div>
       ))}
 
+      <FaPhoneAlt/>
       <button
         onClick={handleSearch}
         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-xl shadow-md hover:shadow-blue-200 transition-all"
