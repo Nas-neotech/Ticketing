@@ -83,6 +83,7 @@ const DevComponent = ({ drag, element, isLayoutEle, parent, dragPreview, item })
       {/* Avatar */}
       <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
         {/* <FaUser className="text-blue-600 text-2xl" /> */}
+        icon
       </div>
 
       {/* User Info */}
