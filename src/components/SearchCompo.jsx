@@ -11,30 +11,7 @@ const SearchCompo = ({ onSearchResults }) => {
     []
   );
 
-    const mockData = [
-      {
-        id: 1,
-        name: "Rani 1",
-        phone: "123-456-7890",
-        mobile: "555-111-2222",
-        port: "PORT-1234",
-      },
-      {
-        id: 2,
-        name: "Rani 2",
-        phone: "987-654-3210",
-        mobile: "555-333-4444",
-        port: "PORT-5678",
-      },
-      {
-        id: 3,
-        name: "Rani 3",
-        phone: "555-123-4567",
-        mobile: "555-555-5555",
-        port: "PORT-9999",
-      },
-    ];
-
+   
   const [formData, setFormData] = useState(
     fields.reduce((acc, field) => ({ ...acc, [field.id]: "" }), {})
   );
@@ -64,6 +41,32 @@ const SearchCompo = ({ onSearchResults }) => {
       // const data = await response.json();
 
       // Send data back to parent
+
+       const mockData = [
+      {
+        id: 1,
+        name: "Rani 1",
+        phone: "123-456-7890",
+        mobile: "555-111-2222",
+        port: "PORT-1234",
+      },
+      {
+        id: 2,
+        name: "Rani 2",
+        phone: "987-654-3210",
+        mobile: "555-333-4444",
+        port: "PORT-5678",
+      },
+      {
+        id: 3,
+        name: "Rani 3",
+        phone: "555-123-4567",
+        mobile: "555-555-5555",
+        port: "PORT-9999",
+      },
+    ];
+
+      
       if (onSearchResults) {
         onSearchResults(mockData);
       }
