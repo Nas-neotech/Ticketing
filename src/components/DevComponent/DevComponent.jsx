@@ -87,7 +87,7 @@ const DevComponent = ({
           </button>
         </div>
       ) : element?.text === "Result" ? (
-        <div className="max-w-xs mx-auto bg-[rgb(55,16,195)] shadow-lg rounded-2xl p-6 flex flex-col items-center space-y-3">
+        <div className="max-w-xs mx-auto bg-blue-500 shadow-lg rounded-2xl p-6 flex flex-col items-center space-y-3">
           {/* Avatar */}
           <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
             {/* <FaUser className="text-blue-600 text-2xl" /> */}
