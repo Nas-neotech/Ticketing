@@ -135,7 +135,7 @@ const TTT = ({ onSearchResults }) => {
       ))}
       <button
         onClick={handleSearch}
-        className="w-full bg-blue-600 hover:bg-blue-700 flex  flex-row gap-5
+        className="w-full  bg-gradient-to-br from-blue-700 to-indigo-700 flex  flex-row gap-5
          justify-center items-center text-white font-medium py-2.5 rounded-xl
           shadow-md hover:shadow-blue-200 transition-all"
       >
