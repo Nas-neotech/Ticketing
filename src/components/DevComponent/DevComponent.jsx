@@ -79,7 +79,18 @@ const DevComponent = ({ drag, element, isLayoutEle, parent, dragPreview, item })
             Search
           </button>
         </div>
-      ) : (
+      ) : element?.text == "Result" ?  <div className="max-w-xs mx-auto bg-white shadow-lg rounded-2xl p-6 flex flex-col items-center space-y-3">
+      {/* Avatar */}
+      <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+        {/* <FaUser className="text-blue-600 text-2xl" /> */}
+      </div>
+
+      {/* User Info */}
+      <div className="text-center">
+        <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
+        <p className="text-gray-500 text-sm">{phone}</p>
+      </div>
+    </div>:(
         <p>{`This is Dev Component: id => ${element?.text || element?.id}`}</p>
       )}
     </div>
