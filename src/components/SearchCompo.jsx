@@ -1,16 +1,18 @@
 import React, { useMemo, useState } from "react";
-import {  PhoneOutlined } from "@ant-design/icons";
+import { UserOutlined, PhoneOutlined, MobileOutlined, DatabaseOutlined } from "@ant-design/icons";
+
 
 const SearchCompo = ({ onSearchResults }) => {
-  const fields = useMemo(
-    () => [
-      { id: "name", type: "text", placeholder: "Enter name", icon: <PhoneOutlined/> },
-      { id: "phone", type: "tel", placeholder: "Enter phone number", icon:  <PhoneOutlined/>  },
-      { id: "mobile", type: "tel", placeholder: "Enter mobile number", icon:  <PhoneOutlined/>  },
-      { id: "port", type: "text", placeholder: "Enter port serial number", icon:  <PhoneOutlined/>  },
-    ],
-    []
-  );
+const fields = useMemo(
+  () => [
+    { id: "name", type: "text", placeholder: "Enter name", icon: UserOutlined },
+    { id: "phone", type: "tel", placeholder: "Enter phone number", icon: PhoneOutlined },
+    { id: "mobile", type: "tel", placeholder: "Enter mobile number", icon: MobileOutlined },
+    { id: "port", type: "text", placeholder: "Enter port serial number", icon: DatabaseOutlined },
+  ],
+  []
+);
+
 
   const [formData, setFormData] = useState(
     fields.reduce((acc, field) => ({ ...acc, [field.id]: "" }), {})
@@ -45,12 +47,12 @@ const SearchCompo = ({ onSearchResults }) => {
         Search for user
       </h2>
 
-      {fields.map(({ id, type, placeholder ,icon }) => (
+      {fields.map(({ id, type, placeholder ,icon:Icon }) => (
         <div
           key={id}
           className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all"
         >
-          {icon}
+          <Icon className="text-gray-500 text-lg" />
           <input
             type={type}
             placeholder={placeholder}
