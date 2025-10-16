@@ -5,10 +5,10 @@ import { UserOutlined, PhoneOutlined, MobileOutlined, DatabaseOutlined } from "@
 const SearchCompo = ({ onSearchResults }) => {
 const fields = useMemo(
   () => [
-    { id: "name", type: "text", placeholder: "Enter name", icon: UserOutlined },
-    { id: "phone", type: "tel", placeholder: "Enter phone number", icon: PhoneOutlined },
-    { id: "mobile", type: "tel", placeholder: "Enter mobile number", icon: MobileOutlined },
-    { id: "port", type: "text", placeholder: "Enter port serial number", icon: DatabaseOutlined },
+    { id: "name", type: "text", placeholder: "Enter name" },
+    { id: "phone", type: "tel", placeholder: "Enter phone number" },
+    { id: "mobile", type: "tel", placeholder: "Enter mobile number" },
+    { id: "port", type: "text", placeholder: "Enter port serial number" },
   ],
   []
 );
@@ -47,12 +47,12 @@ const fields = useMemo(
         Search for user
       </h2>
 
-      {fields.map(({ id, type, placeholder ,icon:Icon }) => (
+      {fields.map(({ id, type, placeholder }) => (
         <div
           key={id}
           className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all"
         >
-          <Icon className="text-gray-500 text-lg" />
+        
           <input
             type={type}
             placeholder={placeholder}
