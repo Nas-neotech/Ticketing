@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from "react";
-import { UserOutlined, PhoneOutlined, MobileOutlined, DatabaseOutlined } from "@ant-design/icons";
+// import { UserOutlined, PhoneOutlined, MobileOutlined, DatabaseOutlined } from "@ant-design/icons";
 
 const SearchCompo = ({ onSearchResults }) => {
   const fields = useMemo(
     () => [
-      { id: "name", type: "text", placeholder: "Enter name", icon: <UserOutlined /> },
-      { id: "phone", type: "tel", placeholder: "Enter phone number", icon: <PhoneOutlined /> },
-      { id: "mobile", type: "tel", placeholder: "Enter mobile number", icon: <MobileOutlined /> },
-      { id: "port", type: "text", placeholder: "Enter port serial number", icon: <DatabaseOutlined /> },
+      { id: "name", type: "text", placeholder: "Enter name", icon: 1 },
+      { id: "phone", type: "tel", placeholder: "Enter phone number", icon: 2 },
+      { id: "mobile", type: "tel", placeholder: "Enter mobile number", icon: 3 },
+      { id: "port", type: "text", placeholder: "Enter port serial number", icon: 4 },
     ],
     []
   );
