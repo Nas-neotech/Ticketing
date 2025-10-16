@@ -58,9 +58,9 @@ const DevComponent = ({
       {element?.id === 25890 ? (
         <TestDevComponent item={item} element={element} />
       ) : element?.text === "Search" ? (
-       <SearchCompo/>
+       <SearchCompo />
       ) : element?.text === "Result" ? (
-       <ResultCompo/>
+       <ResultCompo />
       ) : (
         <p>{`This is Dev Component: id => ${element?.text || element?.id}`}</p>
       )}
