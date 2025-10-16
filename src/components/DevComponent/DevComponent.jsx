@@ -64,7 +64,7 @@ const DevComponent = ({
           {/* Name Input */}
            <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all">
             <img
-              src="./src/assets/images/user.webp"
+              src="../assets/images/user.webp"
               alt="User Icon"
               className="w-5 h-5 object-contain opacity-70"
             />
@@ -78,7 +78,7 @@ const DevComponent = ({
           {/* Phone Input */}
           <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-blue-500 transition-all">
         <img
-          src="./src/assets/images/phone.jpg"
+          src="../assets/images/phone.jpg"
           alt="Phone Icon"
           className="w-5 h-5 object-contain opacity-70"
         />
