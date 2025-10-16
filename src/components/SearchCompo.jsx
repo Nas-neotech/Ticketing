@@ -7,7 +7,7 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 
-const TTT = ({ onSearchResults }) => {
+const SearchCompo = ({ onSearchResults }) => {
   const fields = useMemo(
     () => [
       {
@@ -65,7 +65,7 @@ const TTT = ({ onSearchResults }) => {
       },
       {
         id: 3,
-        name: "Rani 2",
+        name: "Rani 3",
         phone: "333 333 3333",
         mobile: "712 345 6789",
         port: "1011",
@@ -90,6 +90,13 @@ const TTT = ({ onSearchResults }) => {
         phone: "666 666 6666",
         mobile: "987 654 3210",
         port: "1617",
+      },
+      {
+        id: 7,
+        name: "Rani 6",
+        phone: "777 777 7777",
+        mobile: "987 754 3210",
+        port: "1819",
       },
     ];
 
@@ -123,7 +130,10 @@ const TTT = ({ onSearchResults }) => {
           className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 
           focus-within:ring-2 focus-within:ring-blue-500 transition-all"
         >
-          <Icon className="text-gray-500 text-lg" />
+          <Icon
+            className="text-gray-500 text-lg"
+            style={id === "phone" ? { transform: "rotateY(180deg)" } : {}}
+          />
           <input
             type={type}
             placeholder={placeholder}
@@ -145,4 +155,4 @@ const TTT = ({ onSearchResults }) => {
   );
 };
 
-export default TTT;
+export default SearchCompo;
