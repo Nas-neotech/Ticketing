@@ -124,21 +124,21 @@ const SearchCompo = ({ onSearchResults }) => {
         Search Users
       </h2>
 
-      {fields.map(({ id, type, placeholder, icon: Icon }) => (
+      {fields.map((f, index) => (
         <div
-          key={id}
+          key={f.id}
           className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 
           focus-within:ring-2 focus-within:ring-blue-500 transition-all"
         >
-          <Icon
+          <f.icon
             className="text-gray-500 text-lg"
-            style={id === "phone" ? { transform: "rotateY(180deg)" } : {}}
+            style={f.id === "phone" ? { transform: "rotateY(180deg)" } : {}}
           />
           <input
-            type={type}
-            placeholder={placeholder}
-            value={formData[id]}
-            onChange={(e) => handleInputChange(id, e.target.value)}
+            type={f.type}
+            placeholder={f.placeholder}
+            value={formData[f.id]}
+            onChange={(e) => handleInputChange(f.id, e.target.value)}
             className="flex-1 outline-none text-gray-700 placeholder-gray-400 bg-transparent"
           />
         </div>
