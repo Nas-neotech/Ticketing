@@ -18,14 +18,14 @@ const SearchCompo = ({ onSearchResults }) => {
       },
       {
         id: "phone",
-        type: "tel",
+        type: "text",
         placeholder: "Enter phone number",
         icon: PhoneOutlined,
         onlyNumbers: true,
       },
       {
         id: "mobile",
-        type: "tel",
+        type: "text",
         placeholder: "Enter mobile number",
         icon: MobileOutlined,
         onlyNumbers: true,
