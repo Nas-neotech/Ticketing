@@ -4,7 +4,6 @@ import ElementSettingsWrapper from "../ElementTypes/ElementSettingsWrapper/Eleme
 import TestDevComponent from "./TestDevComponent";
 import SearchCompo from "../SearchCompo.jsx";
 import ResultCompo from "../ResultCompo.jsx";
-import HeaderCompo from "../HeaderCompo.jsx";
 
 const DevComponent = ({
   drag,
@@ -59,9 +58,7 @@ const DevComponent = ({
 
       {element?.id === 25890 ? (
         <TestDevComponent item={item} element={element} />
-      ) : element?.text === "Header" ?
-       <HeaderCompo />
-        : element?.text === "Search" ? (
+      ) : element?.text === "Search" ? (
        <SearchCompo onSearchResults={(data) => setSearchResults(data)}/>
       ) : element?.text === "Result" ? (
        <ResultCompo data={searchResults}/>
