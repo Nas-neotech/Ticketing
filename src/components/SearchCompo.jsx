@@ -21,18 +21,21 @@ const SearchCompo = ({ onSearchResults }) => {
         type: "tel",
         placeholder: "Enter phone number",
         icon: PhoneOutlined,
+        onlyNumbers: true,
       },
       {
         id: "mobile",
         type: "tel",
         placeholder: "Enter mobile number",
         icon: MobileOutlined,
+        onlyNumbers: true,
       },
       {
         id: "port",
         type: "text",
         placeholder: "Enter port serial number",
         icon: DatabaseOutlined,
+        onlyNumbers: true,
       },
     ],
     []
@@ -42,8 +45,9 @@ const SearchCompo = ({ onSearchResults }) => {
     fields.reduce((acc, field) => ({ ...acc, [field.id]: "" }), {})
   );
 
-  const handleInputChange = (id, value) => {
-    setFormData((prev) => ({ ...prev, [id]: value }));
+ const handleInputChange = (id, value, onlyNumbers) => {
+    const cleanedValue = onlyNumbers ? value.replace(/\D/g, "") : value;
+    setFormData((prev) => ({ ...prev, [id]: cleanedValue }));
   };
 
   const handleSearch = () => {
