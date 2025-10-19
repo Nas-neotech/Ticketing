@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { GlobalOutlined, CustomerServiceFilled } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
-import i18n from "src/components/i18n.js";
+import i18n from "./i18n.js";
 
 const HeaderCompo = () => {
   const { t } = useTranslation();
