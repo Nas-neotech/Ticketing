@@ -138,12 +138,15 @@ const SearchCompo = ({ onSearchResults }) => {
             className="text-gray-500 text-lg"
             style={f.id === "phone" ? { transform: "rotateY(180deg)" } : {}}
           />
-          <input
-            type={f.type}
+            <input
+            type="text"
             placeholder={f.placeholder}
             value={formData[f.id]}
-            onChange={(e) => handleInputChange(f.id, e.target.value)}
+            onChange={(e) =>
+              handleInputChange(f.id, e.target.value, f.onlyNumbers)
+            }
             className="flex-1 outline-none text-gray-700 placeholder-gray-400 bg-transparent"
+            inputMode={f.onlyNumbers ? "numeric" : "text"}
           />
         </div>
       ))}
