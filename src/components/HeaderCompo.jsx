@@ -5,19 +5,28 @@ import i18n from "./i18n.js";
 
 const HeaderCompo = () => {
   const { t } = useTranslation();
-  const [lang, setLang] = useState("EN");
+
+  const [lang, setLang] = useState(() => {
+    const saved = localStorage.getItem("lang");
+    return saved || i18n.language?.toUpperCase() || "EN";
+  });
 
   const ChangeLanguage = () => {
     const newLang = lang === "EN" ? "AR" : "EN";
-    setLang(newLang);
     i18n.changeLanguage(newLang);
     localStorage.setItem("lang", newLang);
     document.body.dir = newLang === "AR" ? "rtl" : "ltr";
+    setLang(newLang);
   };
 
   useEffect(() => {
-    document.body.dir = i18n.language === "AR" ? "rtl" : "ltr";
-  }, [i18n.language]);
+    const handleLangChange = (lng) => {
+      document.body.dir = lng === "AR" ? "rtl" : "ltr";
+      setLang(lng.toUpperCase());
+    };
+    i18n.on("languageChanged", handleLangChange);
+    return () => i18n.off("languageChanged", handleLangChange);
+  }, []);
 
   return (
     <div className="flex p-5 justify-between items-center">
