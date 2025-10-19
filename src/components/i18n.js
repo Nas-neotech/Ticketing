@@ -1,8 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import en from "../en.json";
-import ar from "../ar.json";
+import en from "src/components/en.js";
+import ar from "src/components/ar.js";
 
 i18n.use(initReactI18next).init({
   resources: {
