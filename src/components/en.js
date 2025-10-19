@@ -12,5 +12,6 @@
      },
     "No_Results": "No Results Found",
     "View_Details": "View Details",
-    "Unknown":"Unknown"
+    "Unknown":"Unknown",
+    "No_phone":"No phone number"
 }
