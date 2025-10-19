@@ -120,7 +120,7 @@ const SearchCompo = ({ onSearchResults }) => {
       className="max-w-md mx-auto bg-white shadow-xl hover:shadow-2xl transition-shadow 
     duration-300 rounded-2xl p-6 flex flex-col gap-6"
     >
-      <h2 className="text-2xl text-blue-700 font-semibold text-gray-800 text-center">
+      <h2 className="text-2xl text-blue-700 font-semibold text-center">
         Search
       </h2>
 
