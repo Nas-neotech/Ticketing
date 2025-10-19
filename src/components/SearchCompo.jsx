@@ -3,7 +3,7 @@ import {
   UserOutlined,
   PhoneOutlined,
   MobileOutlined,
-  DatabaseOutlined,
+  ClusterOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
 
@@ -34,7 +34,7 @@ const SearchCompo = ({ onSearchResults }) => {
         id: "port",
         type: "text",
         placeholder: "Enter port serial number",
-        icon: DatabaseOutlined,
+        icon: ClusterOutlined,
         onlyNumbers: true,
       },
     ],
