@@ -26,7 +26,7 @@ const DevComponent = ({
   return (
     <div
       ref={ref}
-      className="bg-[url(./src/assets/bg.png)] bg-cover"
+      className="bg-[url(./src/assets/images/bg.png)] bg-cover"
       style={{
         position: "relative",
         ...(selectedElement?.id === element?.id
