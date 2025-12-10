@@ -121,7 +121,7 @@ const ProSearch = ({ onSearchResults }) => {
 
   return (
     <div
-      className="w-full h-full bg-[url(./src/assets/bg.png)] bg-cover
+      className="w-full h-full 
      flex items-center justify-center"
     >
       <div
