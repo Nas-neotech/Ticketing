@@ -129,7 +129,7 @@ const ProSearch = ({ onSearchResults }) => {
        rounded-3xl shadow-2xl shadow-black p-6 flex flex-col gap-4"
       >
         <div className="flex justify-center">
-          <img src="./src/assets/logo.gif" />
+          <img src="./src/assets/images/logo.gif" />
         </div>
 
         {fields.map((f) => (
