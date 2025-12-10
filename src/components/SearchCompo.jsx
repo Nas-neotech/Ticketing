@@ -7,33 +7,33 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 
-const SearchCompo = ({ onSearchResults }) => {
+const ProSearch = ({ onSearchResults }) => {
   const fields = useMemo(
     () => [
       {
         id: "name",
         type: "text",
-        placeholder: "Enter name",
+        placeholder: "Name",
         icon: UserOutlined,
       },
       {
         id: "phone",
         type: "text",
-        placeholder: "Enter phone number",
+        placeholder: "Phone number",
         icon: PhoneOutlined,
         onlyNumbers: true,
       },
       {
         id: "mobile",
         type: "text",
-        placeholder: "Enter mobile number",
+        placeholder: "Mobile number",
         icon: MobileOutlined,
         onlyNumbers: true,
       },
       {
         id: "port",
         type: "text",
-        placeholder: "Enter port serial number",
+        placeholder: "Port's serial number",
         icon: ClusterOutlined,
         onlyNumbers: true,
       },
@@ -42,16 +42,15 @@ const SearchCompo = ({ onSearchResults }) => {
   );
 
   const [formData, setFormData] = useState(
-    fields.reduce((acc, field) => ({ ...acc, [field.id]: "" }), {})
+    fields.reduce((acc, f) => ({ ...acc, [f.id]: "" }), {})
   );
 
- const handleInputChange = (id, value, onlyNumbers) => {
+  const handleInputChange = (id, value, onlyNumbers) => {
     const cleanedValue = onlyNumbers ? value.replace(/\D/g, "") : value;
     setFormData((prev) => ({ ...prev, [id]: cleanedValue }));
   };
 
   const handleSearch = () => {
-    // Mock data
     const mockData = [
       {
         id: 1,
@@ -97,7 +96,7 @@ const SearchCompo = ({ onSearchResults }) => {
       },
       {
         id: 7,
-        name: "Rani 6",
+        name: "Rani 7",
         phone: "777 777 7777",
         mobile: "987 754 3210",
         port: "1819",
@@ -115,51 +114,58 @@ const SearchCompo = ({ onSearchResults }) => {
     if (
       (formData.name || formData.phone || formData.mobile || formData.port) &&
       onSearchResults
-    )
+    ) {
       onSearchResults(filteredData);
+    }
   };
 
   return (
     <div
-      className="max-w-md mx-auto bg-white shadow-xl hover:shadow-2xl shadow-black transition-shadow 
-    duration-300 rounded-2xl p-6 flex flex-col gap-6 border-2 border-blue-700"
+      className="w-full h-full bg-[url(./src/assets/bg.png)] bg-cover
+     flex items-center justify-center"
     >
-      <h2 className="text-2xl text-blue-700 font-semibold text-center">
-        Search
-      </h2>
-
-      {fields.map((f, index) => (
-        <div
-          key={f.id}
-          className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-3 
-          focus-within:ring-2 focus-within:ring-blue-500 transition-all"
-        >
-          <f.icon
-            className="text-gray-500 text-lg"
-            style={f.id === "phone" ? { transform: "rotateY(180deg)" } : {}}
-          />
-            <input
-            type="text"
-            placeholder={f.placeholder}
-            value={formData[f.id]}
-            onChange={(e) =>
-              handleInputChange(f.id, e.target.value, f.onlyNumbers)
-            }
-            className="flex-1 outline-none text-gray-700 placeholder-gray-400 bg-transparent"
-            inputMode={f.onlyNumbers ? "numeric" : "text"}
-          />
-        </div>
-      ))}
-      <button
-        onClick={handleSearch}
-        className="w-full  bg-gradient-to-br from-blue-700 to-indigo-700 flex  flex-row gap-5
-         justify-center items-center text-white font-medium py-2.5 rounded-xl
-          shadow-md hover:shadow-blue-200 transition-all"
+      <div
+        className="w-[30%] backdrop-blur-md bg-white/30
+       rounded-3xl shadow-2xl shadow-black p-6 flex flex-col gap-4"
       >
-        <SearchOutlined /> Search
-      </button>
+        <div className="flex justify-center">
+          <img src="./src/assets/logo.gif" />
+        </div>
+
+        {fields.map((f) => (
+          <div
+            key={f.id}
+            className="flex items-center gap-4 bg-white
+             border border-gray-400 rounded-xl p-3 focus-within:border-2
+              focus-within:border-purple-900 "
+          >
+            <f.icon className="text-purple-900 text-xl" />
+            <input
+              type="text"
+              placeholder={f.placeholder}
+              value={formData[f.id]}
+              onChange={(e) =>
+                handleInputChange(f.id, e.target.value, f.onlyNumbers)
+              }
+              className="flex-1 outline-none font-semibold text-gray-800
+               placeholder-gray-400 bg-transparent "
+              inputMode={f.onlyNumbers ? "numeric" : "text"}
+            />
+          </div>
+        ))}
+
+        <button
+          onClick={handleSearch}
+          className="w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg
+                     p-2 items-center justify-center gap-2 text-white font-semibold
+                     rounded-xl"
+        >
+          <SearchOutlined style={{ fontSize: "24px" }} />
+          Search
+        </button>
+      </div>
     </div>
   );
 };
 
-export default SearchCompo;
+export default ProSearch;
