@@ -125,7 +125,7 @@ const SearchCompo = ({ onSearchResults }) => {
 
   return (
   <div
-      className={`w-full h-full bg-cover
+      className={`w-full h-screen
      flex items-center justify-center p-5`}
       style={{ backgroundImage: `url(${background})` }}
     >
