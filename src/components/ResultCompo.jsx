@@ -23,7 +23,7 @@ const ResultCompo = ({ data }) => {
           <div
             key={user.id}
             className="w-[15%] bg-gradient-to-br from-white to-blue-50
-           shadow-2xl shadow-black transition-shadow duration-300
+           shadow-lg shadow-black transition-shadow duration-300
             rounded-2xl p-4 gap-3 flex flex-col items-center border border-gray-100"
           >
             <div className="flex w-full items-center justify-center gap-3">
