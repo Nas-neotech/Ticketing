@@ -6,8 +6,11 @@ import {
   ClusterOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
+import ResultCompo from "./ResultCompo";
 
-const ProSearch = ({ onSearchResults }) => {
+const SearchCompo = ({ onSearchResults }) => {
+  const [results, setResults] = useState([]);
+
   const fields = useMemo(
     () => [
       {
@@ -111,61 +114,67 @@ const ProSearch = ({ onSearchResults }) => {
         (!formData.port || user.port.includes(formData.port))
     );
 
-    if (
-      (formData.name || formData.phone || formData.mobile || formData.port) &&
-      onSearchResults
-    ) {
-      onSearchResults(filteredData);
+    if (formData.name || formData.phone || formData.mobile || formData.port) {
+      setResults(filteredData);
+    } else {
+      setResults([]);
     }
   };
 
   return (
     <div
-      className="w-full h-full 
-     flex items-center justify-center"
+      className="w-full h-full bg-[url(./src/assets/images/bg.png)] bg-cover
+     flex items-center justify-center p-3"
     >
       <div
-        className="w-[30%] backdrop-blur-md bg-white/30
-       rounded-3xl shadow-2xl shadow-black p-6 flex flex-col gap-4"
+        className="flex flex-col w-full h-full justify-center items-center
+      overflow-y-scroll scrollbar-none gap-10 "
       >
-        <div className="flex justify-center">
+        <div
+          className="w-[40%] backdrop-blur-md bg-white/30
+       rounded-3xl shadow-2xl shadow-black p-4 flex items-center"
+        >
           <img src="./src/assets/images/logo.gif" />
-        </div>
 
-        {fields.map((f) => (
-          <div
-            key={f.id}
-            className="flex items-center gap-4 bg-white
+          <div className="w-full flex flex-col gap-3">
+            {fields.map((f) => (
+              <div
+                key={f.id}
+                className="flex items-center gap-4 bg-white
              border border-gray-400 rounded-xl p-3 focus-within:border-2
               focus-within:border-purple-900 "
-          >
-            <f.icon className="text-purple-900 text-xl" />
-            <input
-              type="text"
-              placeholder={f.placeholder}
-              value={formData[f.id]}
-              onChange={(e) =>
-                handleInputChange(f.id, e.target.value, f.onlyNumbers)
-              }
-              className="flex-1 outline-none font-semibold text-gray-800
+              >
+                <f.icon className="text-purple-900 text-xl" />
+                <input
+                  type="text"
+                  placeholder={f.placeholder}
+                  value={formData[f.id]}
+                  onChange={(e) =>
+                    handleInputChange(f.id, e.target.value, f.onlyNumbers)
+                  }
+                  className="flex-1 outline-none font-semibold text-gray-800
                placeholder-gray-400 bg-transparent "
-              inputMode={f.onlyNumbers ? "numeric" : "text"}
-            />
-          </div>
-        ))}
+                  inputMode={f.onlyNumbers ? "numeric" : "text"}
+                />
+              </div>
+            ))}
 
-        <button
-          onClick={handleSearch}
-          className="w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg
+            <button
+              onClick={handleSearch}
+              className="w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg
                      p-2 items-center justify-center gap-2 text-white font-semibold
                      rounded-xl"
-        >
-          <SearchOutlined style={{ fontSize: "24px" }} />
-          Search
-        </button>
+            >
+              <SearchOutlined style={{ fontSize: "24px" }} />
+              Search
+            </button>
+          </div>
+        </div>
+
+        {results.length > 0 && <ResultCompo data={results} />}
       </div>
     </div>
   );
 };
 
-export default ProSearch;
+export default SearchCompo;
