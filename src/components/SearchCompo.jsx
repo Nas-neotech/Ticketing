@@ -173,7 +173,7 @@ const SearchCompo = ({ onSearchResults }) => {
 
         {results.length > 0 && (
           <div
-            className=" w-full h-full overflow-y-auto scrollbar-none
+            className=" w-full h-fit p-10 overflow-y-auto scrollbar-none
            items-center justify-center flex"
           >
             <ResultCompo data={results} />
