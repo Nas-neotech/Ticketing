@@ -14,26 +14,11 @@ const ResultCompo = ({ data }) => {
   return (
     <div className="w-[75%] flex flex-wrap justify-center gap-6">
       {data.map((user) => {
-        const info = useMemo(
-          () => [
-            {
-              id: "phone",
-              icon: PhoneOutlined,
-              value: user.phone,
-            },
-            {
-              id: "mobile",
-              icon: MobileOutlined,
-              value: user.mobile,
-            },
-            {
-              id: "port",
-              icon: ClusterOutlined,
-              value: user.port,
-            },
-          ],
-          [user]
-        );
+        const info = [
+          { id: "phone", icon: PhoneOutlined, value: user.phone },
+          { id: "mobile", icon: MobileOutlined, value: user.mobile },
+          { id: "port", icon: ClusterOutlined, value: user.port },
+        ];
         return (
           <div
             key={user.id}
