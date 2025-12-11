@@ -13,7 +13,7 @@ const DevComponent = ({
   item,
 }) => {
   const { isView, setSelectedElement, selectedElement } = usePage();
-  const [searchResults, setSearchResults] = useState([]);
+ 
   const ref = useRef();
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const DevComponent = ({
       {element?.id === 25890 ? (
         <TestDevComponent item={item} element={element} />
       ) : element?.text === "Search" ? (
-       <SearchCompo onSearchResults={(data) => setSearchResults(data)}/>
+       <SearchCompo/>
       ) : (
         <p>{`This is Dev Component: id => ${element?.text || element?.id}`}</p>
       )}
