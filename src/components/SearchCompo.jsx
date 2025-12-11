@@ -77,6 +77,90 @@ const SearchCompo = ({ onSearchResults }) => {
         port: "1011",
       },
       {
+        id: 1,
+        name: "Rani 2",
+        phone: "1111111111",
+        mobile: "1254567890",
+        port: "1234",
+      },
+      {
+        id: 2,
+        name: "Rani 2",
+        phone: "2222222222",
+        mobile: "6422345678",
+        port: "5678",
+      },
+      {
+        id: 3,
+        name: "Rani 3",
+        phone: "3333333333",
+        mobile: "7123456789",
+        port: "1011",
+      },
+      {
+        id: 1,
+        name: "Rani 2",
+        phone: "1111111111",
+        mobile: "1254567890",
+        port: "1234",
+      },
+      {
+        id: 2,
+        name: "Rani 2",
+        phone: "2222222222",
+        mobile: "6422345678",
+        port: "5678",
+      },
+      {
+        id: 3,
+        name: "Rani 3",
+        phone: "3333333333",
+        mobile: "7123456789",
+        port: "1011",
+      },
+      {
+        id: 1,
+        name: "Rani 2",
+        phone: "1111111111",
+        mobile: "1254567890",
+        port: "1234",
+      },
+      {
+        id: 2,
+        name: "Rani 2",
+        phone: "2222222222",
+        mobile: "6422345678",
+        port: "5678",
+      },
+      {
+        id: 3,
+        name: "Rani 3",
+        phone: "3333333333",
+        mobile: "7123456789",
+        port: "1011",
+      },
+      {
+        id: 1,
+        name: "Rani 2",
+        phone: "1111111111",
+        mobile: "1254567890",
+        port: "1234",
+      },
+      {
+        id: 2,
+        name: "Rani 2",
+        phone: "2222222222",
+        mobile: "6422345678",
+        port: "5678",
+      },
+      {
+        id: 3,
+        name: "Rani 3",
+        phone: "3333333333",
+        mobile: "7123456789",
+        port: "1011",
+      },
+      {
         id: 4,
         name: "Rani 4",
         phone: "4444444444",
@@ -124,17 +208,14 @@ const SearchCompo = ({ onSearchResults }) => {
   return (
     <div
       className="w-full h-full bg-[url(./src/assets/images/bg.png)] bg-cover
-     flex items-center justify-center p-3"
+     flex items-center justify-center "
     >
-      <div
-        className="flex flex-col w-full h-full justify-center items-center
-      overflow-y-scroll scrollbar-none gap-10 "
-      >
+      <div className="flex flex-col w-full h-full justify-center items-center gap-10 ">
         <div
           className="w-[40%] backdrop-blur-md bg-white/30
        rounded-3xl shadow-2xl shadow-black p-4 flex items-center"
         >
-          <img src="src/assets/images/Logo.gif" />
+          <img src="./src/assets/images/Logo.gif" />
 
           <div className="w-full flex flex-col gap-3">
             {fields.map((f) => (
@@ -171,7 +252,14 @@ const SearchCompo = ({ onSearchResults }) => {
           </div>
         </div>
 
-        {results.length > 0 && <ResultCompo data={results} />}
+        {results.length > 0 && (
+          <div
+            className=" w-full overflow-y-auto scrollbar-none
+           items-center justify-center"
+          >
+            <ResultCompo data={results} />
+          </div>
+        )}
       </div>
     </div>
   );
