@@ -7,8 +7,8 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import ResultCompo from "./ResultCompo";
-import background from "../../assets/images/NasBg.png"
-import logo from "../../assets/images/NasLogo.gif"
+import background from "../assets/images/NasBg.png"
+import logo from "../assets/images/NasLogo.gif"
 
 const SearchCompo = ({ onSearchResults }) => {
   const [results, setResults] = useState([]);
@@ -166,7 +166,7 @@ const SearchCompo = ({ onSearchResults }) => {
                      rounded-xl"
             >
               <SearchOutlined style={{ fontSize: "24px" }} />
-              Searchsssss
+              Search newwwwww
             </button>
           </div>
         </div>
