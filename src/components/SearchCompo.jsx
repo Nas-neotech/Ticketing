@@ -123,7 +123,7 @@ const SearchCompo = ({ onSearchResults }) => {
 
   return (
     <div
-      className="w-full h-full bg-[url(../assets/images/bg.png)] bg-cover
+      className="w-full h-full bg-[url(../assets/images/NasBg.png)] bg-cover
      flex items-center justify-center p-5"
     >
       <div className="flex flex-col w-full h-full justify-center items-center gap-10 ">
@@ -131,7 +131,7 @@ const SearchCompo = ({ onSearchResults }) => {
           className="w-[40%] backdrop-blur-md bg-white/30
        rounded-3xl shadow-2xl shadow-black p-4 flex items-center"
         >
-          <img src="../assets/images/logo.gif" />
+          <img src="../assets/images/NasLogo.gif" />
 
           <div className="w-full flex flex-col gap-3">
             {fields.map((f) => (
