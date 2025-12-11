@@ -57,51 +57,51 @@ const SearchCompo = ({ onSearchResults }) => {
     const mockData = [
       {
         id: 1,
-        name: "Rani 1",
-        phone: "111 111 1111",
-        mobile: "125 456 7890",
+        name: "Rani 2",
+        phone: "1111111111",
+        mobile: "1254567890",
         port: "1234",
       },
       {
         id: 2,
         name: "Rani 2",
-        phone: "222 222 2222",
-        mobile: "642 234 5678",
+        phone: "2222222222",
+        mobile: "6422345678",
         port: "5678",
       },
       {
         id: 3,
         name: "Rani 3",
-        phone: "333 333 3333",
-        mobile: "712 345 6789",
+        phone: "3333333333",
+        mobile: "7123456789",
         port: "1011",
       },
       {
         id: 4,
         name: "Rani 4",
-        phone: "444 444 4444",
-        mobile: "211 243 6789",
+        phone: "4444444444",
+        mobile: "2112436789",
         port: "1213",
       },
       {
         id: 5,
         name: "Rani 5",
-        phone: "555 555 5555",
-        mobile: "643 234 5678",
+        phone: "5555555555",
+        mobile: "6432345678",
         port: "1415",
       },
       {
         id: 6,
         name: "Rani 6",
-        phone: "666 666 6666",
-        mobile: "987 654 3210",
+        phone: "6666666666",
+        mobile: "9876543210",
         port: "1617",
       },
       {
         id: 7,
         name: "Rani 7",
-        phone: "777 777 7777",
-        mobile: "987 754 3210",
+        phone: "7777777777",
+        mobile: "98775473210",
         port: "1819",
       },
     ];
@@ -123,7 +123,7 @@ const SearchCompo = ({ onSearchResults }) => {
 
   return (
     <div
-      className="w-full h-full bg-[url(./src/assets/images/bg.png)] bg-cover
+      className="w-full h-full bg-[url(./src/assets/bg.png)] bg-cover
      flex items-center justify-center p-3"
     >
       <div
@@ -134,7 +134,7 @@ const SearchCompo = ({ onSearchResults }) => {
           className="w-[40%] backdrop-blur-md bg-white/30
        rounded-3xl shadow-2xl shadow-black p-4 flex items-center"
         >
-          <img src="./src/assets/images/Logo.gif" />
+          <img src="./src/assets/logo.gif" />
 
           <div className="w-full flex flex-col gap-3">
             {fields.map((f) => (
