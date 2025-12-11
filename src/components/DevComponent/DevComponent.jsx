@@ -3,7 +3,6 @@ import usePage from "../../contexts/usePage/usePage";
 import ElementSettingsWrapper from "../ElementTypes/ElementSettingsWrapper/ElementSettingsWrapper";
 import TestDevComponent from "./TestDevComponent";
 import SearchCompo from "../SearchCompo.jsx";
-import ResultCompo from "../ResultCompo.jsx";
 
 const DevComponent = ({
   drag,
@@ -61,8 +60,6 @@ const DevComponent = ({
         <TestDevComponent item={item} element={element} />
       ) : element?.text === "Search" ? (
        <SearchCompo onSearchResults={(data) => setSearchResults(data)}/>
-      ) : element?.text === "Result" ? (
-       <ResultCompo data={searchResults}/>
       ) : (
         <p>{`This is Dev Component: id => ${element?.text || element?.id}`}</p>
       )}
