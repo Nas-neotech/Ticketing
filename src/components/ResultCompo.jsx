@@ -1,49 +1,89 @@
-import React from "react";
-import { UserOutlined, PhoneOutlined } from "@ant-design/icons";
+import React, { useMemo } from "react";
+import {
+  UserOutlined,
+  PhoneOutlined,
+  MobileOutlined,
+  ClusterOutlined,
+} from "@ant-design/icons";
 
 const ResultCompo = ({ data }) => {
-  if (!data || data.length === 0)
-    return (
-      <div className="flex justify-center text-[rgb(255,0,0)] p-10 font-bold text-xl">
-        No results found.
-      </div>
-    );
+  if (data.length === 0) {
+    alert("No results found");
+  }
 
   return (
-    <div className="max-w-6xl mx-auto mt-6 flex flex-wrap justify-center gap-6">
-      {data.map((user) => (
-        <div
-          key={user.id}
-          className="w-full sm:w-60 bg-gradient-to-br from-white to-blue-50 shadow-2xl hover:shadow-3xl transition-shadow duration-300 rounded-2xl p-6 flex flex-col items-center space-y-4 border border-gray-100"
-        >
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-700 to-indigo-700 flex items-center justify-center text-white shadow-md text-lg font-bold">
-            <UserOutlined className="text-white text-4xl " />
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <div className="text-lg font-bold ">{user.name || "Unknown"}</div>
-            <div className="text-gray-600 gap-3 font-bold flex items-center">
-              <PhoneOutlined
-                className="text-lg "
-                style={{ transform: "rotateY(180deg)" }}
-              />
-              {user.phone || "No phone"}
-            </div>
-          </div>
-
-          <button
-            className="w-full bg-gradient-to-br from-blue-700 to-indigo-700  text-white p-2 font-bold text-lg
-          rounded-2xl shadow-lg hover:shadow-indigo-800 transition-all duration-300"
+    <div className="w-[75%] flex flex-wrap justify-center gap-6">
+      {data.map((user) => {
+        const info = useMemo(
+          () => [
+            {
+              id: "phone",
+              icon: PhoneOutlined,
+              value: user.phone,
+            },
+            {
+              id: "mobile",
+              icon: MobileOutlined,
+              value: user.mobile,
+            },
+            {
+              id: "port",
+              icon: ClusterOutlined,
+              value: user.port,
+            },
+          ],
+          [user]
+        );
+        return (
+          <div
+            key={user.id}
+            className="w-[20%] bg-gradient-to-br from-white to-blue-50
+           shadow-2xl shadow-black transition-shadow duration-300
+            rounded-2xl p-4 gap-3 flex flex-col items-center border border-gray-100"
           >
-            View Profile
-          </button>
-        </div>
-      ))}
+            <div className="flex w-full items-center justify-center gap-3">
+              <div
+                className="w-10 h-10 rounded-2xl flex items-center justify-center
+                  bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900"
+              >
+                <UserOutlined className="text-white text-2xl " />
+              </div>
+              <div className="text-lg font-semibold text-gray-800 ">
+                {user.name || "Unknown"}
+              </div>
+            </div>
+
+            <div className="flex flex-col w-full items-center gap-1 text-center">
+              {info.map((i, index) => {
+                return (
+                  <div
+                    key={i.id}
+                    className="text-gray-600 w-full font-bold flex items-center"
+                  >
+                    <div className="w-[15%]">
+                      <i.icon
+                        className="text-lg "
+                        style={{ transform: "rotateY(180deg)" }}
+                      />
+                    </div>
+                    <div className="w-[85%]">{i.value || "-"}</div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <button
+              className="w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg
+                     p-2 items-center justify-center gap-2 text-white font-semibold
+                     rounded-xl"
+            >
+              View Profile
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 export default ResultCompo;
-
-
-
