@@ -7,6 +7,8 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import ResultCompo from "./ResultCompo";
+import background from '../assets/images/NasBg.png'
+import logo from '../assets/images/NasLogo.gif'
 
 const SearchCompo = ({ onSearchResults }) => {
   const [results, setResults] = useState([]);
@@ -123,15 +125,15 @@ const SearchCompo = ({ onSearchResults }) => {
 
   return (
     <div
-      className="w-full h-full bg-[url(../assets/images/NasBg.png)] bg-cover
-     flex items-center justify-center p-5"
+      className={`w-full h-full bg-[url(${background)] bg-cover
+     flex items-center justify-center p-5`}
     >
       <div className="flex flex-col w-full h-full justify-center items-center gap-10 ">
         <div
           className="w-[40%] backdrop-blur-md bg-white/30
        rounded-3xl shadow-2xl shadow-black p-4 flex items-center"
         >
-          <img src="../assets/images/NasLogo.gif" />
+          <img src={logo} />
 
           <div className="w-full flex flex-col gap-3">
             {fields.map((f) => (
