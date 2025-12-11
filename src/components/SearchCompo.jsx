@@ -134,7 +134,7 @@ const SearchCompo = ({ onSearchResults }) => {
           className="w-[40%] backdrop-blur-md bg-white/30
        rounded-3xl shadow-2xl shadow-black p-4 flex items-center"
         >
-          <img src="./src/assets/images/logo.gif" />
+          <img src="./src/assets/images/Logo.gif" />
 
           <div className="w-full flex flex-col gap-3">
             {fields.map((f) => (
