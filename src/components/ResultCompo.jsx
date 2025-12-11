@@ -12,7 +12,7 @@ const ResultCompo = ({ data }) => {
   }
 
   return (
-    <div className="w-[75%] flex flex-wrap justify-center gap-6">
+    <div className="w-full flex flex-wrap justify-center gap-6  ">
       {data.map((user) => {
         const info = [
           { id: "phone", icon: PhoneOutlined, value: user.phone },
@@ -22,13 +22,13 @@ const ResultCompo = ({ data }) => {
         return (
           <div
             key={user.id}
-            className="w-[20%] bg-gradient-to-br from-white to-blue-50
+            className="w-[15%] bg-gradient-to-br from-white to-blue-50
            shadow-2xl shadow-black transition-shadow duration-300
             rounded-2xl p-4 gap-3 flex flex-col items-center border border-gray-100"
           >
             <div className="flex w-full items-center justify-center gap-3">
               <div
-                className="w-10 h-10 rounded-2xl flex items-center justify-center
+                className="w-10 h-10 rounded-full flex items-center justify-center
                   bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900"
               >
                 <UserOutlined className="text-white text-2xl " />
