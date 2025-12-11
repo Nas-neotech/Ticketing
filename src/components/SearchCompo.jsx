@@ -123,7 +123,7 @@ const SearchCompo = ({ onSearchResults }) => {
 
   return (
     <div
-      className="w-full h-full bg-[url(src/assets/images/bg.png)] bg-cover
+      className="w-full h-full bg-[url(./src/assets/images/bg.png)] bg-cover
      flex items-center justify-center p-3"
     >
       <div
