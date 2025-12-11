@@ -166,7 +166,7 @@ const SearchCompo = ({ onSearchResults }) => {
                      rounded-xl"
             >
               <SearchOutlined style={{ fontSize: "24px" }} />
-              Search
+              Searchsssss
             </button>
           </div>
         </div>
