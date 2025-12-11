@@ -54,7 +54,7 @@ const SearchCompo = ({ onSearchResults }) => {
   };
 
   const handleSearch = () => {
-  const mockData = [
+    const mockData = [
       {
         id: 1,
         name: "Rani 2",
@@ -123,15 +123,15 @@ const SearchCompo = ({ onSearchResults }) => {
 
   return (
     <div
-      className="w-full h-full bg-[url(./src/assets/images/bg.png)] bg-cover
-     flex items-center justify-center "
+      className="w-full h-full bg-[url(./src/assets/bg.png)] bg-cover
+     flex items-center justify-center p-5"
     >
       <div className="flex flex-col w-full h-full justify-center items-center gap-10 ">
         <div
           className="w-[40%] backdrop-blur-md bg-white/30
        rounded-3xl shadow-2xl shadow-black p-4 flex items-center"
         >
-          <img src="./src/assets/images/Logo.gif" />
+          <img src="./src/assets/logo.gif" />
 
           <div className="w-full flex flex-col gap-3">
             {fields.map((f) => (
@@ -170,8 +170,8 @@ const SearchCompo = ({ onSearchResults }) => {
 
         {results.length > 0 && (
           <div
-            className=" w-full overflow-y-auto scrollbar-none
-           items-center justify-center"
+            className=" w-full h-full overflow-y-auto scrollbar-none
+           items-center justify-center flex"
           >
             <ResultCompo data={results} />
           </div>
