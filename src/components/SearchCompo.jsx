@@ -142,7 +142,7 @@ const SearchCompo = () => {
               <div
                 key={f.id}
                 className="flex items-center gap-4 bg-white
-             border border-gray-400 rounded-xl p-3 focus-within:border-2
+             border border-gray-400 rounded-xl p-3
               focus-within:border-purple-900 "
               >
                 <f.icon className="text-purple-900 text-xl" />
