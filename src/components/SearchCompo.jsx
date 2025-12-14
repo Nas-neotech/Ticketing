@@ -168,8 +168,8 @@ const SearchCompo = () => {
 
         {/* Results */}
         {results.length > 0 && (
-          <div className="w-full h-full p-4 overflow-y-auto scrollbar-none bg-white/30 rounded-xl shadow-lg">
-            <ResultCompo data={results} />
+          <div className=" w-full h-fit p-10 overflow-y-auto scrollbar-none items-center justify-center flex">
+            <ResultCompo data={results} />{" "}
           </div>
         )}
       </div>
