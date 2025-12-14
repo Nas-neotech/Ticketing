@@ -9,5 +9,6 @@
     "box": "Box",
     "email": "Email",
     "mobile": "Mobile",
-    "password": "Password"
+    "password": "Password",
+    "name":"name"
 }
