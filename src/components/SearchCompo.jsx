@@ -11,7 +11,7 @@ import background from "../assets/images/NasBg.png"
 import logo from "../assets/images/NasLogo.gif"
 import { t } from "i18next"
 
-const SearchCompo = ({ onSearchResults }) => {
+const SearchCompo = () => {
   const [results, setResults] = useState([]);
 
   const fields = useMemo(
