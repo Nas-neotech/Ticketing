@@ -27,7 +27,7 @@ const SearchCompo = () => {
       {
         id: "phone",
         type: "text",
-        placeholder: "Phone number",
+        placeholder: "Phone number asdf"
         icon: PhoneOutlined,
         onlyNumbers: true,
       },
