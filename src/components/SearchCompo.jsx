@@ -134,9 +134,9 @@ const SearchCompo = () => {
       <div className="flex flex-col w-full h-full justify-center items-center gap-10">
         {/* Search Form */}
         <div className="w-[40%] backdrop-blur-md bg-white/30 rounded-3xl shadow-2xl shadow-black p-4 flex items-center">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" className="w-[40%]" />
 
-          <div className="w-full flex flex-col gap-3">
+          <div className="w-[60%] flex flex-col gap-3">
             {fields.map((f) => (
               <div
                 key={f.id}
