@@ -27,7 +27,7 @@ const SearchCompo = () => {
       {
         id: "phone",
         type: "text",
-        placeholder: "Phone number",
+        placeholder: "Phone number newwww",
         icon: PhoneOutlined,
         onlyNumbers: true,
       },
@@ -60,13 +60,55 @@ const SearchCompo = () => {
 
   const handleSearch = () => {
     const mockData = [
-      { id: 1, name: "Rani 2", phone: "1111111111", mobile: "1254567890", port: "1234" },
-      { id: 2, name: "Rani 2", phone: "2222222222", mobile: "6422345678", port: "5678" },
-      { id: 3, name: "Rani 3", phone: "3333333333", mobile: "7123456789", port: "1011" },
-      { id: 4, name: "Rani 4", phone: "4444444444", mobile: "2112436789", port: "1213" },
-      { id: 5, name: "Rani 5", phone: "5555555555", mobile: "6432345678", port: "1415" },
-      { id: 6, name: "Rani 6", phone: "6666666666", mobile: "9876543210", port: "1617" },
-      { id: 7, name: "Rani 7", phone: "7777777777", mobile: "98775473210", port: "1819" },
+      {
+        id: 1,
+        name: "Rani 2",
+        phone: "1111111111",
+        mobile: "1254567890",
+        port: "1234",
+      },
+      {
+        id: 2,
+        name: "Rani 2",
+        phone: "2222222222",
+        mobile: "6422345678",
+        port: "5678",
+      },
+      {
+        id: 3,
+        name: "Rani 3",
+        phone: "3333333333",
+        mobile: "7123456789",
+        port: "1011",
+      },
+      {
+        id: 4,
+        name: "Rani 4",
+        phone: "4444444444",
+        mobile: "2112436789",
+        port: "1213",
+      },
+      {
+        id: 5,
+        name: "Rani 5",
+        phone: "5555555555",
+        mobile: "6432345678",
+        port: "1415",
+      },
+      {
+        id: 6,
+        name: "Rani 6",
+        phone: "6666666666",
+        mobile: "9876543210",
+        port: "1617",
+      },
+      {
+        id: 7,
+        name: "Rani 7",
+        phone: "7777777777",
+        mobile: "98775473210",
+        port: "1819",
+      },
     ];
 
     const filteredData = mockData.filter(
@@ -77,9 +119,7 @@ const SearchCompo = () => {
         (!formData.port || user.port.includes(formData.port))
     );
 
-    setResults(
-      Object.values(formData).some((val) => val) ? filteredData : []
-    );
+    setResults(Object.values(formData).some((val) => val) ? filteredData : []);
   };
 
   return (
