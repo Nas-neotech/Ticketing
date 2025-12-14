@@ -44,7 +44,7 @@ const SearchCompo = () => {
         onlyNumbers: true,
       },
     ],
-    []
+    [t]
   );
 
   const [formData, setFormData] = useState(
