@@ -10,9 +10,11 @@ import ResultCompo from "./ResultCompo";
 import background from "../assets/images/NasBg.png"
 import logo from "../assets/images/NasLogo.gif"
 import { t } from "i18next"
+import useLang from "../../contexts/useLanguage/useLang"
 
 const SearchCompo = () => {
   const [results, setResults] = useState([]);
+     const {lang} = useLang()
 
   const fields = useMemo(
     () => [
