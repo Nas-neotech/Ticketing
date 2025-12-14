@@ -60,7 +60,7 @@ const DevComponent = ({
       ) : element?.text === "Search" ? (
        <SearchCompo/>
       ) : (
-        <p>{`This is Dev Component User Information : id => ${element?.text || element?.id}`}</p>
+        <p>{`This is Dev Component : id => ${element?.text || element?.id}`}</p>
       )}
     </div>
   );
