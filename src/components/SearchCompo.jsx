@@ -9,7 +9,7 @@ import {
 import ResultCompo from "./ResultCompo";
 import background from "../assets/images/NasBg.png";
 import logo from "../assets/images/NasLogo.gif";
-import { t } from "i18next";
+import { t } from "i18next"
 import useLang from "../contexts/useLanguage/useLang";
 
 const SearchCompo = () => {
@@ -21,7 +21,7 @@ const SearchCompo = () => {
       {
         id: "name",
         type: "text",
-        placeholder: t("name"),
+        placeholder: t('name'),
         icon: UserOutlined,
       },
       {
