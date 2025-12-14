@@ -19,7 +19,7 @@ const SearchCompo = ({ onSearchResults }) => {
       {
         id: "name",
         type: "text",
-        placeholder: t('name'),
+        placeholder: t("name"),
         icon: UserOutlined,
       },
       {
