@@ -7,14 +7,14 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import ResultCompo from "./ResultCompo";
-import background from "../assets/images/NasBg.png"
-import logo from "../assets/images/NasLogo.gif"
-import { t } from "i18next"
-import useLang from "../contexts/useLanguage/useLang"
+import background from "../assets/images/NasBg.png";
+import logo from "../assets/images/NasLogo.gif";
+import { t } from "i18next";
+import useLang from "../contexts/useLanguage/useLang";
 
 const SearchCompo = () => {
   const [results, setResults] = useState([]);
-  const {lang} = useLang()
+  const { lang } = useLang();
 
   const fields = useMemo(
     () => [
@@ -27,7 +27,7 @@ const SearchCompo = () => {
       {
         id: "phone",
         type: "text",
-        placeholder: "Phone number asdf"
+        placeholder: "Phone number",
         icon: PhoneOutlined,
         onlyNumbers: true,
       },
@@ -60,55 +60,13 @@ const SearchCompo = () => {
 
   const handleSearch = () => {
     const mockData = [
-      {
-        id: 1,
-        name: "Rani 2",
-        phone: "1111111111",
-        mobile: "1254567890",
-        port: "1234",
-      },
-      {
-        id: 2,
-        name: "Rani 2",
-        phone: "2222222222",
-        mobile: "6422345678",
-        port: "5678",
-      },
-      {
-        id: 3,
-        name: "Rani 3",
-        phone: "3333333333",
-        mobile: "7123456789",
-        port: "1011",
-      },
-      {
-        id: 4,
-        name: "Rani 4",
-        phone: "4444444444",
-        mobile: "2112436789",
-        port: "1213",
-      },
-      {
-        id: 5,
-        name: "Rani 5",
-        phone: "5555555555",
-        mobile: "6432345678",
-        port: "1415",
-      },
-      {
-        id: 6,
-        name: "Rani 6",
-        phone: "6666666666",
-        mobile: "9876543210",
-        port: "1617",
-      },
-      {
-        id: 7,
-        name: "Rani 7",
-        phone: "7777777777",
-        mobile: "98775473210",
-        port: "1819",
-      },
+      { id: 1, name: "Rani 2", phone: "1111111111", mobile: "1254567890", port: "1234" },
+      { id: 2, name: "Rani 2", phone: "2222222222", mobile: "6422345678", port: "5678" },
+      { id: 3, name: "Rani 3", phone: "3333333333", mobile: "7123456789", port: "1011" },
+      { id: 4, name: "Rani 4", phone: "4444444444", mobile: "2112436789", port: "1213" },
+      { id: 5, name: "Rani 5", phone: "5555555555", mobile: "6432345678", port: "1415" },
+      { id: 6, name: "Rani 6", phone: "6666666666", mobile: "9876543210", port: "1617" },
+      { id: 7, name: "Rani 7", phone: "7777777777", mobile: "98775473210", port: "1819" },
     ];
 
     const filteredData = mockData.filter(
@@ -119,37 +77,32 @@ const SearchCompo = () => {
         (!formData.port || user.port.includes(formData.port))
     );
 
-    if (formData.name || formData.phone || formData.mobile || formData.port) {
-      setResults(filteredData);
-    } else {
-      setResults([]);
-    }
+    setResults(
+      Object.values(formData).some((val) => val) ? filteredData : []
+    );
   };
 
   return (
-  <div
-      className={`w-full h-screen
-     flex items-center justify-center p-5`}
-      style={{ backgroundImage: `url(${background})` }}
+    <div
+      className="w-full h-screen flex items-center justify-center p-5"
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
-      <div className="flex flex-col w-full h-full justify-center items-center gap-10 ">
-        <div
-          className="w-[40%] backdrop-blur-md bg-white/30
-       rounded-3xl shadow-2xl shadow-black p-4 flex items-center"
-        >
-          <img src={logo} />
+      <div className="flex flex-col w-full h-full justify-center items-center gap-10">
+        {/* Search Form */}
+        <div className="w-[40%] backdrop-blur-md bg-white/30 rounded-3xl shadow-2xl shadow-black p-4 flex items-center">
+          <img src={logo} alt="Logo" className="w-20 h-20 mr-4" />
 
           <div className="w-full flex flex-col gap-3">
             {fields.map((f) => (
               <div
                 key={f.id}
-                className="flex items-center gap-4 bg-white
-             border border-gray-400 rounded-xl p-3
-              focus-within:border-purple-900 "
+                className="flex items-center gap-4 bg-white border border-gray-400 rounded-xl p-3 focus-within:border-purple-900"
               >
-                <f.icon className="text-purple-900 text-xl" 
-                  style={{ transform: "rotateY(180deg)" }}
-                />
+                <f.icon className="text-purple-900 text-xl" />
                 <input
                   type="text"
                   placeholder={f.placeholder}
@@ -157,8 +110,7 @@ const SearchCompo = () => {
                   onChange={(e) =>
                     handleInputChange(f.id, e.target.value, f.onlyNumbers)
                   }
-                  className="flex-1 outline-none font-semibold text-gray-800
-               placeholder-gray-400 bg-transparent "
+                  className="flex-1 outline-none font-semibold text-gray-800 placeholder-gray-400 bg-transparent"
                   inputMode={f.onlyNumbers ? "numeric" : "text"}
                 />
               </div>
@@ -166,9 +118,7 @@ const SearchCompo = () => {
 
             <button
               onClick={handleSearch}
-              className="w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg
-                     p-2 items-center justify-center gap-2 text-white font-semibold
-                     rounded-xl"
+              className="w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg p-2 items-center justify-center gap-2 text-white font-semibold rounded-xl"
             >
               <SearchOutlined style={{ fontSize: "24px" }} />
               Search
@@ -176,11 +126,9 @@ const SearchCompo = () => {
           </div>
         </div>
 
+        {/* Results */}
         {results.length > 0 && (
-          <div
-            className=" w-full h-fit p-10 overflow-y-auto scrollbar-none
-           items-center justify-center flex"
-          >
+          <div className="w-[80%] max-h-[400px] p-4 overflow-y-auto scrollbar-none bg-white/30 rounded-xl shadow-lg">
             <ResultCompo data={results} />
           </div>
         )}
