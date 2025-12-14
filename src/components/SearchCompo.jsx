@@ -145,7 +145,9 @@ const SearchCompo = () => {
              border border-gray-400 rounded-xl p-3
               focus-within:border-purple-900 "
               >
-                <f.icon className="text-purple-900 text-xl" />
+                <f.icon className="text-purple-900 text-xl" 
+                  style={{ transform: "rotateY(180deg)" }}
+                />
                 <input
                   type="text"
                   placeholder={f.placeholder}
