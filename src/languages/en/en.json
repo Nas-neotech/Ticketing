@@ -11,8 +11,8 @@
     "mobile": "Mobile",
     "password": "Password",
     "name":"Name",
-    "Phone number":"Phone number",
-    "Mobile number":"Mobile number",
-    "Port serial number":"Port serial number",
-    "Search":"Search",
+    "Phone_number":"Phone number",
+    "Mobile_number":"Mobile number",
+    "Port_serial_number":"Port serial number",
+    "Search":"Search"
 }
