@@ -14,8 +14,8 @@
     "mobile": "رقم الموبايل",
     "password": "كلمة المرور",
     "name":"الاسم",  
-    "Phone_number":"رقم الهاتف",
-    "Mobile_number":"رقم الموبايل",
-    "Port_serial_number":"رقم البوابة",
-    "Search":"بحث"
+    "phone_number":"رقم الهاتف",
+    "mobile_number":"رقم الموبايل",
+    "port_serial_number":"رقم البوابة",
+    "search":"بحث"
 }
