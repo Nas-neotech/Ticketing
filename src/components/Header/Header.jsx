@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useLang from "../../contexts/useLanguage/useLang";
 import { t } from "i18next";
 import logo from '../../assets/svgs/lightLogo.svg'
-import darkLogo from '../../assets/images/logo.png'
+import darkLogo from '../../assets/images/NasLogo.png'
 import useTheme from "../../contexts/useTheme/useTheme";
 import PagesMenu from "../AdminComponents/PagesMenu";
 import { DownloadOutlined, FundProjectionScreenOutlined, MobileOutlined, MoonOutlined, SunOutlined } from "@ant-design/icons";
