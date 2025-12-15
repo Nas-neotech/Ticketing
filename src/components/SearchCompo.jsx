@@ -27,21 +27,21 @@ const SearchCompo = () => {
       {
         id: "phone",
         type: "text",
-        placeholder: t('Phone_number'),
+        placeholder: t('phone_number'),
         icon: PhoneOutlined,
         onlyNumbers: true,
       },
       {
         id: "mobile",
         type: "text",
-        placeholder: t('Mobile_number'),
+        placeholder: t('mobile_number'),
         icon: MobileOutlined,
         onlyNumbers: true,
       },
       {
         id: "port",
         type: "text",
-        placeholder: t('Port_serial_number'),
+        placeholder: t('port_serial_number'),
         icon: ClusterOutlined,
         onlyNumbers: true,
       },
@@ -161,7 +161,7 @@ const SearchCompo = () => {
               className="w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg p-2 items-center justify-center gap-2 text-white font-semibold rounded-xl"
             >
               <SearchOutlined style={{ fontSize: "24px" }} />
-              {t('Search')}
+              {t('search')}
             </button>
           </div>
         </div>
