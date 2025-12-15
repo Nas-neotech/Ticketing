@@ -8,7 +8,7 @@ import {
 } from "@ant-design/icons";
 import ResultCompo from "./ResultCompo";
 import background from "../assets/images/NasBg.png";
-import logo from "../assets/images/NasLogo.png";
+import logo from "../assets/images/logo.png";
 import { t } from "i18next";
 import useLang from "../contexts/useLanguage/useLang";
 
