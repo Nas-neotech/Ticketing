@@ -73,13 +73,55 @@ const SearchCompo = () => {
     // simulate backend delay
     setTimeout(() => {
       const mockData = [
-        { id: 1, name: "Rani 1", phone: "1111111111", mobile: "1254567890", port: "1234" },
-        { id: 2, name: "Rani 2", phone: "2222222222", mobile: "6422345678", port: "5678" },
-        { id: 3, name: "Rani 3", phone: "3333333333", mobile: "7123456789", port: "1011" },
-        { id: 4, name: "Rani 4", phone: "4444444444", mobile: "2112436789", port: "1213" },
-        { id: 5, name: "Rani 5", phone: "5555555555", mobile: "6432345678", port: "1415" },
-        { id: 6, name: "Rani 6", phone: "6666666666", mobile: "9876543210", port: "1617" },
-        { id: 7, name: "Rani 7", phone: "7777777777", mobile: "9877543210", port: "1819" },
+        {
+          id: 1,
+          name: "Rani 1",
+          phone: "1111111111",
+          mobile: "1254567890",
+          port: "1234",
+        },
+        {
+          id: 2,
+          name: "Rani 2",
+          phone: "2222222222",
+          mobile: "6422345678",
+          port: "5678",
+        },
+        {
+          id: 3,
+          name: "Rani 3",
+          phone: "3333333333",
+          mobile: "7123456789",
+          port: "1011",
+        },
+        {
+          id: 4,
+          name: "Rani 4",
+          phone: "4444444444",
+          mobile: "2112436789",
+          port: "1213",
+        },
+        {
+          id: 5,
+          name: "Rani 5",
+          phone: "5555555555",
+          mobile: "6432345678",
+          port: "1415",
+        },
+        {
+          id: 6,
+          name: "Rani 6",
+          phone: "6666666666",
+          mobile: "9876543210",
+          port: "1617",
+        },
+        {
+          id: 7,
+          name: "Rani 7",
+          phone: "7777777777",
+          mobile: "9877543210",
+          port: "1819",
+        },
       ];
 
       const filteredData = mockData.filter(
@@ -105,7 +147,6 @@ const SearchCompo = () => {
       }}
     >
       <div className="flex flex-col w-full h-full justify-center items-center gap-10">
-        {/* Search Form */}
         <div className="w-[40%] backdrop-blur-md bg-white/30 rounded-3xl shadow-2xl shadow-black p-4 flex items-center">
           <img src={logo} alt="Logo" className="w-[40%]" />
 
@@ -136,19 +177,17 @@ const SearchCompo = () => {
                 ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
             >
               <SearchOutlined style={{ fontSize: "24px" }} />
-              {loading ? t("searching") : t("search")}
+              {t("search")}
             </button>
           </div>
         </div>
 
-        {/* Loader */}
         {loading && (
           <div className="w-full flex items-center justify-center p-10">
-            <img src={NasLoader} alt="Loading..." className="w-24 h-24" />
+            <img src={NasLoader} alt="Loading..." />
           </div>
         )}
 
-        {/* Results */}
         {!loading && results.length > 0 && (
           <div className="w-full h-fit p-10 overflow-y-auto scrollbar-none items-center justify-center flex">
             <ResultCompo data={results} />
