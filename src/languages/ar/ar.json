@@ -13,5 +13,9 @@
     "email": "البريد الالكتروني",
     "mobile": "رقم الموبايل",
     "password": "كلمة المرور",
-    "name":"الاسم"
+    "name":"الاسم",  
+    "Phone number":"رقم الهاتف",
+    "Mobile number":"رقم الموبايل",
+    "Port's serial number":"رقم البوابة",
+    "Search":"بحث"
 }
