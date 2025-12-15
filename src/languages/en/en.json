@@ -10,5 +10,9 @@
     "email": "Email",
     "mobile": "Mobile",
     "password": "Password",
-    "name":"Name"
+    "name":"Name",
+    "Phone number":"Phone number",
+    "Mobile number":"Mobile number",
+    "Port's serial number":"Port's serial number",
+    "Search":"Search"
 }
