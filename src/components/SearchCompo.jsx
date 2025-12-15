@@ -147,46 +147,47 @@ const SearchCompo = () => {
       }}
     >
       <div className="flex flex-col w-full h-full justify-center items-center gap-10">
-        <div className="w-[40%] backdrop-blur-md bg-white/30 rounded-3xl shadow-2xl shadow-black p-4 flex items-center">
-          <img src={logo} alt="Logo" className="w-[40%]" />
+        <div className="w-[40%] flex items-center">
+          <div className="w-full flex items-center justify-center">
+            {loading ? (
+              <img src={NasLoader} alt="Loading..." className="w-[50%]" />
+            ) : (
+              <div className="w-full flex">
+                <img src={logo} alt="Logo" className="w-[40%]" />
+                <div className="w-[60%] flex flex-col gap-3 backdrop-blur- bg-white/30 rounded-3xl shadow-2xl shadow-black p-4 ">
+                  {fields.map((f) => (
+                    <div
+                      key={f.id}
+                      className="flex items-center gap-4 bg-white border border-gray-400 rounded-xl p-3 focus-within:border-purple-900"
+                    >
+                      <f.icon className="text-purple-900 text-xl" />
+                      <input
+                        type="text"
+                        placeholder={f.placeholder}
+                        value={formData[f.id]}
+                        onChange={(e) =>
+                          handleInputChange(f.id, e.target.value, f.onlyNumbers)
+                        }
+                        className="flex-1 outline-none font-semibold text-gray-800 placeholder-gray-400 bg-transparent"
+                        inputMode={f.onlyNumbers ? "numeric" : "text"}
+                      />
+                    </div>
+                  ))}
 
-          <div className="w-[60%] flex flex-col gap-3">
-            {fields.map((f) => (
-              <div
-                key={f.id}
-                className="flex items-center gap-4 bg-white border border-gray-400 rounded-xl p-3 focus-within:border-purple-900"
-              >
-                <f.icon className="text-purple-900 text-xl" />
-                <input
-                  type="text"
-                  placeholder={f.placeholder}
-                  value={formData[f.id]}
-                  onChange={(e) =>
-                    handleInputChange(f.id, e.target.value, f.onlyNumbers)
-                  }
-                  className="flex-1 outline-none font-semibold text-gray-800 placeholder-gray-400 bg-transparent"
-                  inputMode={f.onlyNumbers ? "numeric" : "text"}
-                />
-              </div>
-            ))}
-
-            <button
-              onClick={handleSearch}
-              disabled={loading}
-              className={`w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg p-2 items-center justify-center gap-2 text-white font-semibold rounded-xl
+                  <button
+                    onClick={handleSearch}
+                    disabled={loading}
+                    className={`w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg p-2 items-center justify-center gap-2 text-white font-semibold rounded-xl
                 ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
-            >
-              <SearchOutlined style={{ fontSize: "24px" }} />
-              {t("search")}
-            </button>
+                  >
+                    <SearchOutlined style={{ fontSize: "24px" }} />
+                    {t("search")}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-
-        {loading && (
-          <div className="w-full flex items-center justify-center p-10">
-            <img src={NasLoader} alt="Loading..." />
-          </div>
-        )}
 
         {!loading && results.length > 0 && (
           <div className="w-full h-fit p-10 overflow-y-auto scrollbar-none items-center justify-center flex">
