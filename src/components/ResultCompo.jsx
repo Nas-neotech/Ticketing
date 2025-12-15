@@ -5,8 +5,12 @@ import {
   MobileOutlined,
   ClusterOutlined,
 } from "@ant-design/icons";
+import { t } from "i18next";
+import useLang from "../contexts/useLanguage/useLang";  
 
 const ResultCompo = ({ data }) => {
+  const { lang } = useLang();
+  
   if (data.length === 0) {
     alert("No results found");
   }
@@ -62,7 +66,7 @@ const ResultCompo = ({ data }) => {
                      p-2 items-center justify-center gap-2 text-white font-semibold
                      rounded-xl"
             >
-              View Profile
+              {t('account info')}
             </button>
           </div>
         );
