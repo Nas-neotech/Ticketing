@@ -16,33 +16,26 @@ import useLang from "../contexts/useLanguage/useLang";
 const SearchCompo = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
   const { lang } = useLang();
 
   const fields = useMemo(
     () => [
-      {
-        id: "name",
-        type: "text",
-        placeholder: t("name"),
-        icon: UserOutlined,
-      },
+      { id: "name", placeholder: t("name"), icon: UserOutlined },
       {
         id: "phone",
-        type: "text",
         placeholder: t("phone number"),
         icon: PhoneOutlined,
         onlyNumbers: true,
       },
       {
         id: "mobile",
-        type: "text",
         placeholder: t("mobile number"),
         icon: MobileOutlined,
         onlyNumbers: true,
       },
       {
         id: "port",
-        type: "text",
         placeholder: t("port serial number"),
         icon: ClusterOutlined,
         onlyNumbers: true,
@@ -61,7 +54,8 @@ const SearchCompo = () => {
   };
 
   const handleSearch = () => {
-    // prevent empty search
+    setHasSearched(true);
+
     if (!Object.values(formData).some((val) => val)) {
       setResults([]);
       return;
@@ -70,7 +64,6 @@ const SearchCompo = () => {
     setLoading(true);
     setResults([]);
 
-    // simulate backend delay
     setTimeout(() => {
       const mockData = [
         {
@@ -134,7 +127,7 @@ const SearchCompo = () => {
 
       setResults(filteredData);
       setLoading(false);
-    }, 1200); // ⏱️ mock loading time
+    }, 1200);
   };
 
   return (
@@ -147,6 +140,7 @@ const SearchCompo = () => {
       }}
     >
       <div className="flex flex-col w-full h-full justify-center items-center gap-10">
+        {/* Search Area */}
         <div className="w-[40%] flex items-center">
           <div className="w-full flex items-center justify-center">
             {loading ? (
@@ -154,7 +148,8 @@ const SearchCompo = () => {
             ) : (
               <div className="w-full flex">
                 <img src={logo} alt="Logo" className="w-[40%]" />
-                <div className="w-[60%] flex flex-col gap-3 backdrop-blur- bg-white/30 rounded-3xl shadow-2xl shadow-black p-4 ">
+
+                <div className="w-[60%] flex flex-col gap-3 bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl p-4">
                   {fields.map((f) => (
                     <div
                       key={f.id}
@@ -178,7 +173,7 @@ const SearchCompo = () => {
                     onClick={handleSearch}
                     disabled={loading}
                     className={`w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg p-2 items-center justify-center gap-2 text-white font-semibold rounded-xl
-                ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
+                      ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
                   >
                     <SearchOutlined style={{ fontSize: "24px" }} />
                     {t("search")}
@@ -189,9 +184,17 @@ const SearchCompo = () => {
           </div>
         </div>
 
+        {/* Results */}
         {!loading && results.length > 0 && (
-          <div className="w-full h-fit p-10 overflow-y-auto scrollbar-none items-center justify-center flex">
+          <div className="w-full h-fit p-10 overflow-y-auto scrollbar-none flex justify-center">
             <ResultCompo data={results} />
+          </div>
+        )}
+
+        {/* No Results */}
+        {!loading && hasSearched && results.length === 0 && (
+          <div className="text-white text-xl font-semibold bg-black/40 px-8 py-4 rounded-xl">
+            {t("no user found")}
           </div>
         )}
       </div>
