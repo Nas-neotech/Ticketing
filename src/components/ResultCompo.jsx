@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo , useState } from "react";
 import {
   UserOutlined,
   PhoneOutlined,
@@ -9,6 +9,8 @@ import { t } from "i18next";
 import useLang from "../contexts/useLanguage/useLang";  
 
 const ResultCompo = ({ data }) => {
+  
+  const [activeUserId, setActiveUserId] = useState(null);
   const { lang } = useLang();
   
   if (data.length === 0) {
@@ -62,9 +64,9 @@ const ResultCompo = ({ data }) => {
             </div>
 
             <button
-              className="w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 shadow-lg
+              className={`w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 
                      p-2 items-center justify-center gap-2 text-white font-semibold
-                     rounded-xl"
+                     rounded-xl ${ activeUserId === user.id ?"shadow-inner" :"shadow-lg"}`}
             >
               {t('account info')}
             </button>
