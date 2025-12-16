@@ -65,7 +65,7 @@ const ResultCompo = ({ data }) => {
 
             <button
               className={`w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 
-                     p-2 items-center justify-center gap-2 text-white font-semibold
+                     p-2 items-center justify-center gap-2 text-white font-semibold shadow-black
                      rounded-xl ${ activeUserId === user.id ?"shadow-inner" :"shadow-lg"}`}
             >
               {t('account info')}
