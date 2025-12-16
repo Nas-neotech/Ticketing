@@ -68,9 +68,9 @@ const ResultCompo = ({ data }) => {
                 setTimeout(() => setActiveUserId(null), 100);
               }}
               className={`w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 
-         p-2 items-center justify-center gap-2 text-white font-semibold shadow-black
-         rounded-xl transition-shadow duration-100
-         ${activeUserId === user.id ? "shadow-inner" : "shadow-lg"}`}
+                   p-2 items-center justify-center gap-2 text-white font-semibold shadow-black
+                   rounded-xl transition-shadow duration-100
+                 ${activeUserId === user.id ? "shadow-inner" : "shadow-lg"}`}
             >
               {t("account info")}
             </button>
