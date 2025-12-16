@@ -193,7 +193,7 @@ const SearchCompo = () => {
 
         {/* No Results */}
         {!loading && hasSearched && results.length === 0 && (
-          <div className="text-white text-xl font-semibold bg-black/40 px-8 py-4 rounded-xl">
+         <div className="text-[rgb(255,0,0)] text-xl font-semibold bg-white border border-[rgb(255,0,0)] p-3 w-[30%] text-center rounded-xl">
             {t("no user found")}
           </div>
         )}
