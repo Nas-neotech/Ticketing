@@ -1,4 +1,4 @@
-import React, { useMemo , useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   UserOutlined,
   PhoneOutlined,
@@ -6,13 +6,12 @@ import {
   ClusterOutlined,
 } from "@ant-design/icons";
 import { t } from "i18next";
-import useLang from "../contexts/useLanguage/useLang";  
+import useLang from "../contexts/useLanguage/useLang";
 
 const ResultCompo = ({ data }) => {
-  
   const [activeUserId, setActiveUserId] = useState(null);
   const { lang } = useLang();
-  
+
   if (data.length === 0) {
     alert("No results found");
   }
@@ -64,11 +63,16 @@ const ResultCompo = ({ data }) => {
             </div>
 
             <button
+              onClick={() => {
+                setActiveUserId(user.id);
+                setTimeout(() => setActiveUserId(null), 100);
+              }}
               className={`w-full flex bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-900 
-                     p-2 items-center justify-center gap-2 text-white font-semibold shadow-black
-                     rounded-xl ${ activeUserId === user.id ?"shadow-inner" :"shadow-lg"}`}
+         p-2 items-center justify-center gap-2 text-white font-semibold shadow-black
+         rounded-xl transition-shadow duration-100
+         ${activeUserId === user.id ? "shadow-inner" : "shadow-lg"}`}
             >
-              {t('account info')}
+              {t("account info")}
             </button>
           </div>
         );
