@@ -7,21 +7,19 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import ResultCompo from "./ResultCompo";
-import background from "../assets/images/NasBg.png";
-import logo from "../assets/images/logo.png";
-import NasLoader from "../assets/images/NasLoader.gif";
+import background from "../assets/NasBg.png";
+import logo from "../assets/logo.png";
+import NasLoader from "../assets/NasLoader.gif";
 import { t } from "i18next";
-import useLang from "../contexts/useLanguage/useLang";
 
 const SearchCompo = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
-  const { lang } = useLang();
 
   const fields = useMemo(
     () => [
-      { id: "name", placeholder: t("name"), icon: UserOutlined },
+      { id: "username", placeholder: t("username"), icon: UserOutlined },
       {
         id: "phone",
         placeholder: t("phone number"),
@@ -53,81 +51,85 @@ const SearchCompo = () => {
     setFormData((prev) => ({ ...prev, [id]: cleanedValue }));
   };
 
-  const handleSearch = () => {
-    setHasSearched(true);
+  const handleSearch = async () => {
+    try {
+      setLoading(true);
+      setHasSearched(true);
 
-    if (!Object.values(formData).some((val) => val)) {
-      setResults([]);
-      return;
-    }
+      const query = {};
+      if (formData.username) query.username_adsl = formData.username;
+      if (formData.phone) query.phone = formData.phone;
+      if (formData.mobile) query.mobile = formData.mobile;
 
-    setLoading(true);
-    setResults([]);
+      if (Object.keys(query).length === 0) {
+        setResults([]);
+        setLoading(false);
+        return;
+      }
 
-    setTimeout(() => {
-      const mockData = [
-        {
-          id: 1,
-          name: "Rani 1",
-          phone: "1111111111",
-          mobile: "1254567890",
-          port: "1234",
-        },
-        {
-          id: 2,
-          name: "Rani 2",
-          phone: "2222222222",
-          mobile: "6422345678",
-          port: "5678",
-        },
-        {
-          id: 3,
-          name: "Rani 3",
-          phone: "3333333333",
-          mobile: "7123456789",
-          port: "1011",
-        },
-        {
-          id: 4,
-          name: "Rani 4",
-          phone: "4444444444",
-          mobile: "2112436789",
-          port: "1213",
-        },
-        {
-          id: 5,
-          name: "Rani 5",
-          phone: "5555555555",
-          mobile: "6432345678",
-          port: "1415",
-        },
-        {
-          id: 6,
-          name: "Rani 6",
-          phone: "6666666666",
-          mobile: "9876543210",
-          port: "1617",
-        },
-        {
-          id: 7,
-          name: "Rani 7",
-          phone: "7777777777",
-          mobile: "9877543210",
-          port: "1819",
-        },
+      const queryParams = new URLSearchParams({
+        op: "ui_get_acct_info_username_or_code_or_phone",
+        ...query,
+      }).toString();
+
+      const url = `/freeside/api/userinfo_op.cgi?${queryParams}`;
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+      }
+
+      const xmlText = await response.text();
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(xmlText, "application/xml");
+
+      const errCode = xml.querySelector("errCode")?.textContent;
+      if (errCode !== "OK") {
+        setResults([]);
+        return;
+      }
+
+      const valuesNode = xml.querySelector("values");
+      if (!valuesNode) {
+        setResults([]);
+        return;
+      }
+
+      const result = {};
+      Array.from(valuesNode.children).forEach((node) => {
+        result[node.tagName] = node.textContent;
+      });
+
+      const decodeHtml = (str = "") => {
+        const textarea = document.createElement("textarea");
+        textarea.innerHTML = str;
+        return textarea.value;
+      };
+
+      const encodedFields = [
+        "arabic_name",
+        "arabic_first",
+        "arabic_last",
+        "arabic_pbx",
+        "address",
+        "father_name",
+        "mother_name",
       ];
 
-      const filteredData = mockData.filter(
-        (user) =>
-          (!formData.name || user.name.includes(formData.name)) &&
-          (!formData.phone || user.phone.includes(formData.phone)) &&
-          (!formData.mobile || user.mobile.includes(formData.mobile)) &&
-          (!formData.port || user.port.includes(formData.port))
-      );
+      encodedFields.forEach((key) => {
+        if (result[key]) {
+          result[key] = decodeHtml(result[key]);
+        }
+      });
 
-      setResults(filteredData);
+      setResults([result]);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setResults([]);
+    } finally {
       setLoading(false);
-    }, 1200);
+    }
   };
 
   return (
@@ -149,7 +151,7 @@ const SearchCompo = () => {
               <div className="w-full flex">
                 <img src={logo} alt="Logo" className="w-[40%]" />
 
-                <div className="w-[60%] flex flex-col gap-3 bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl p-4">
+                <div className="w-[60%] flex flex-col gap-3 justify-center bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl p-4">
                   {fields.map((f) => (
                     <div
                       key={f.id}
@@ -193,7 +195,7 @@ const SearchCompo = () => {
 
         {/* No Results */}
         {!loading && hasSearched && results.length === 0 && (
-         <div className="text-[rgb(255,0,0)] text-xl font-semibold bg-white border border-[rgb(255,0,0)] p-3 w-[30%] text-center rounded-xl">
+          <div className="text-[rgb(255,0,0)] text-xl font-semibold bg-white border border-[rgb(255,0,0)] p-3 w-[30%] text-center rounded-xl">
             {t("no user found")}
           </div>
         )}
