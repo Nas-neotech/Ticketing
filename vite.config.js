@@ -5,7 +5,6 @@ import { API } from "./API_URL";
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5173,
     proxy: {
       "/freeside": {
         target: `${API}`,
