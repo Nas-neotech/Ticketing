@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { API } from "./api_url";
+import { api } from "./api_url";
 
 export default defineConfig({
   plugins: [react()],
@@ -8,7 +8,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/freeside": {
-        target: `${API}`,
+        target: `${api}`,
         changeOrigin: true,
         secure: false,
       },
